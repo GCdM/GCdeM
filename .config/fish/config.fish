@@ -1,0 +1,33 @@
+if status is-interactive
+    set fish_greeting
+
+    abbr -a l eza -Alh --group-directories-first
+
+    # 
+    # A function for configuring different components of gcdemv
+    #
+    function config
+        set -l system_to_config $argv[1]
+
+        switch $system_to_config
+            case fish
+                set -f system_directory $HOME/.config/fish/
+            case hypr
+                set -f system_directory $HOME/.config/hypr/
+            case waybar
+                set -f system_directory $HOME/.config/waybar/
+            case maidijee
+                set -f system_directory $HOME/.config/nvim/
+            case gcdemv
+                set -f system_directory $HOME
+            case dotconfig
+                set -f system_directory $HOME/.config/
+            case '*'
+                echo Unrecognised gcdemv component: $system_to_config
+                return
+        end
+
+        $VISUAL $system_directory
+        echo Done configuring $system_directory
+    end
+end
