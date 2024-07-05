@@ -2,6 +2,7 @@ if status is-interactive
     set fish_greeting
 
     abbr -a l eza -Alh --group-directories-first
+    abbr -a dark brightnessctl s 1
 
     # 
     # A function for configuring different components of gcdemv
