@@ -2,7 +2,6 @@
 
 Setup notes for getting an arch based system setup with my desktop environment.
 
-
 ## Very first things
 
 - Install paru
