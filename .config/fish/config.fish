@@ -17,7 +17,7 @@ if status is-interactive
                 set -f system_directory $HOME/.config/hypr/
             case waybar
                 set -f system_directory $HOME/.config/waybar/
-            case maidijee
+            case maidiyi
                 set -f system_directory $HOME/.config/nvim/
             case gcdemv
                 set -f system_directory $HOME
