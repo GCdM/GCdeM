@@ -7,7 +7,7 @@ if status is-interactive
     # 
     # A function for configuring different components of gcdemv
     #
-    function config
+    function gcdemv
         set -l system_to_config $argv[1]
 
         switch $system_to_config
@@ -28,7 +28,9 @@ if status is-interactive
                 return
         end
 
-        $VISUAL $system_directory
+        cd $system_directory
+        $VISUAL .
         echo Done configuring $system_directory
+        cd -
     end
 end
