@@ -1,0 +1,9 @@
+[window]
+decorations = "None"
+opacity = 0.95
+
+[scrolling]
+history = 15000
+
+[font]
+normal = { family = "GeistMono Nerd Font" }
