@@ -5,7 +5,7 @@ echo "=== .........  Git  ........... ==="
 echo "=== =========================== ==="
 echo ""
 
-package_manager="$($PACKAGE_MANAGER:-paru)"
+package_manager="${$PACKAGE_MANAGER:-paru}"
 
 if command -v "git" &>/dev/null; then
   echo ":check: git is already installed."
