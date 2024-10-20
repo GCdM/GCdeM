@@ -7,9 +7,7 @@ package_manager="${PACKAGE_MANAGER:-paru}"
 if command -v "$package_manager" &>/dev/null; then
   echo "⏭️ $package_manager is already installed."
 else
-  echo ":dottedface: $package_manager is not installed."
-
-  read -p ":questionmark: Do you want to install it? (y/n): " answer
+  read -p ":questionmark: Do you want to install $package_manager? (y/n): " answer
 
   case $answer in
   [Yy]*)

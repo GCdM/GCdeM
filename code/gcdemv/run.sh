@@ -2,13 +2,6 @@
 
 # Setup snapper + btrfs-grub
 
-# Terminal + shell + basic utils
-# - alacritty
-# - ttf-jetbrains-mono-nerd
-# - fish
-# - curl
-# - tar
-
 # Config github (+ SSH)
 
 # Hyprland utilities
