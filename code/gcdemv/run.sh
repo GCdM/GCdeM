@@ -9,6 +9,7 @@
 # - pipewire
 # - brightnessctl
 # - polkit?
+# - wl-clipboard
 
 # IDE + dev tools
 # - npm
