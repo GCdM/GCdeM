@@ -1,6 +1,5 @@
 [window]
 decorations = "None"
-opacity = 0.95
 
 [scrolling]
 history = 15000
