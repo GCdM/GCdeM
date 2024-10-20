@@ -5,4 +5,6 @@ decorations = "None"
 history = 15000
 
 [font]
+size = 12
 normal = { family = "GeistMono Nerd Font" }
+
