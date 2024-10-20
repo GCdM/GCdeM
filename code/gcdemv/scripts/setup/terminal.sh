@@ -49,10 +49,14 @@ echo ":wrench: Finished installing general utilities!"
 # #########################
 echo ""
 echo ":hammer: Installing developer tools..."
+
+# https://github.com/nvm-sh/nvm/
 echo ":hammer: Intalling NVM"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+# https://rustup.rs/
 echo ":hammer: Intalling Rust"
-$package_manager -S rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 echo ":hammer: Finished installing developer tools!"
 
