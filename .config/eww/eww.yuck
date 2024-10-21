@@ -1,0 +1,62 @@
+; Adapted from https://github.com/elkowar/eww/blob/master/examples/eww-bar/eww.yuck
+(defwindow bar 
+           :monitor 0
+           :exclusive true
+           :geometry (geometry :width "100%"
+                               :height "10px"
+                               :anchor "top center")
+           (bar))
+
+(defwidget bar []
+           (centerbox :orientation "h"
+                      (workspaces)
+                      time
+                      (sidestuff)))
+
+(defwidget sidestuff []
+           (box :class "sidestuff" 
+                :orientation "h" 
+                :space-evenly false 
+                :halign "end"
+                (metric :label ""
+                        :value volume
+                        :onchange "")
+                date_of_month))
+
+(defwidget workspaces []
+           (box :class "workspaces"
+                :orientation "h"
+                :space-evenly true
+                :halign "start"
+                :spacing 10
+                (button :onclick "wmctrl -s 0" 1)
+                (button :onclick "wmctrl -s 1" 2)
+                (button :onclick "wmctrl -s 2" 3)
+                (button :onclick "wmctrl -s 3" 4)
+                (button :onclick "wmctrl -s 4" 5)
+                (button :onclick "wmctrl -s 5" 6)
+                (button :onclick "wmctrl -s 6" 7)
+                (button :onclick "wmctrl -s 7" 8)
+                (button :onclick "wmctrl -s 8" 9)))
+
+(defwidget metric [label value onchange]
+                  (box :orientation "h"
+                        :class "metric"
+                        :space-evenly false
+                        (box :class "label" label)
+                        (scale :min 0
+                              :max 100
+                              :active {onchange != ""}
+                              :value value
+                              :onchange onchange)))
+
+(defpoll time :interval "1s"
+              "date '+%H:%M:%S'")
+
+(defpoll date_of_month :interval "10s"
+                       "date '+%d %b'")
+
+(defpoll volume :interval "0.3s"
+                "~/code/gcdemv/scripts/utilities/current-volume.sh")
+
+

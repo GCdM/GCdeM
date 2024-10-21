@@ -8,8 +8,13 @@
 # - hyprpaper
 # - pipewire
 # - brightnessctl
-# - polkit?
+# - xdg-wayland-portal
+# - polkit? or hyprpolkit
 # - wl-clipboard
+# - nautilus
+
+# Applications
+# - vlc (or better)
 
 # IDE + dev tools
 # - npm
