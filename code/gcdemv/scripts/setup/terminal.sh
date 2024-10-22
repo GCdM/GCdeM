@@ -34,13 +34,6 @@ else
   echo ":sparkles: Installed $font_package!"
 fi
 
-# TODO add phosphor font handling
-# - download files
-# - sudo mkdir /usr/share/fonts/phosphor
-# - sudo mv */*.ttf /usr/share/fonts/phosphor/
-#   - Or instead, move it to user fonts, so no need for sudo
-# - fc-cache -f -v # Reload cache
-
 # #########################
 # ##  General Utilities  ##
 # #########################

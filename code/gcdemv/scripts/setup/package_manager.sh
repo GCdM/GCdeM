@@ -23,3 +23,5 @@ else
     ;;
   esac
 fi
+
+# TODO setup parallel downloads
