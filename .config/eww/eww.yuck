@@ -8,43 +8,63 @@
            (bar))
 
 (defwidget bar []
-           (centerbox :orientation "h"
-                      (workspaces)
+           (centerbox :orientation "horizontal"
+                      (left_hand_section)
                       time
-                      (sidestuff)))
+                      (right_hand_section)))
 
-(defwidget sidestuff []
-           (box :class "sidestuff" 
-                :orientation "h" 
-                :space-evenly false 
-                :halign "end"
-                (metric :label ""
-                        :value volume
-                        :onchange "")
-                date_of_month))
-
+(defwidget left_hand_section []
+                             (workspaces))
 (defwidget workspaces []
-           (box :class "workspaces"
-                :orientation "h"
-                :space-evenly true
-                :halign "start"
-                :spacing 10
-                (button :onclick "wmctrl -s 0" 1)
-                (button :onclick "wmctrl -s 1" 2)
-                (button :onclick "wmctrl -s 2" 3)
-                (button :onclick "wmctrl -s 3" 4)
-                (button :onclick "wmctrl -s 4" 5)
-                (button :onclick "wmctrl -s 5" 6)
-                (button :onclick "wmctrl -s 6" 7)
-                (button :onclick "wmctrl -s 7" 8)
-                (button :onclick "wmctrl -s 8" 9)))
+                      (box :class "workspaces"
+                                  :orientation "horizontal"
+                                  :space-evenly true
+                                  :halign "start"
+                                  :spacing 15
+                                  (button :onclick "wmctrl -s 0" 1)
+                                  (button :onclick "wmctrl -s 1" 2)
+                                  (button :onclick "wmctrl -s 2" 3)
+                                  (button :onclick "wmctrl -s 3" 4)
+                                  (button :onclick "wmctrl -s 4" 5)
+                                  (button :onclick "wmctrl -s 5" 6)
+                                  (button :onclick "wmctrl -s 6" 7)
+                                  (button :onclick "wmctrl -s 7" 8)
+                                  (button :onclick "wmctrl -s 8" 9)))
+
+(defwidget right_hand_section []
+                              (box :class "sidestuff" 
+                                    :orientation "horizontal" 
+                                    :spacing 15
+                                    :space-evenly false 
+                                    :halign "end"                                    
+                                    (volume)
+                                    (brightness)
+                                    (battery)
+                                    date_of_month))
+
+(defwidget volume []
+                  (metric :label "󰕾"
+                          :value current_volume
+                          :onchange ""))
+
+(defwidget brightness []
+                      (metric :label "󰃟"
+                              :value current_brightness
+                              :onchange ""))
+
+(defwidget battery []
+                   (box :orientation "horizontal"
+                        :class "battery"
+                        (label :text "󱊣")
+                        {EWW_BATTERY.BAT1.capacity}"%"))
+
 
 (defwidget metric [label value onchange]
-                  (box :orientation "h"
-                        :class "metric"
-                        :space-evenly false
-                        (box :class "label" label)
-                        (scale :min 0
+                  (box :orientation "horizontal"
+                       :class "metric"
+                       :space-evenly false
+                       (box :class "label" label)
+                       (scale :min 0
                               :max 100
                               :active {onchange != ""}
                               :value value
@@ -56,7 +76,9 @@
 (defpoll date_of_month :interval "10s"
                        "date '+%d %b'")
 
-(defpoll volume :interval "0.3s"
-                "~/code/gcdemv/scripts/utilities/current-volume.sh")
+(defpoll current_volume :interval "0.5s"
+                        "~/code/gcdemv/scripts/utilities/current-volume.sh")
 
+(defpoll current_brightness :interval "0.5s"
+                            "~/code/gcdemv/scripts/utilities/current-brightness.sh")
 
