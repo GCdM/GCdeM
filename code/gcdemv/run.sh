@@ -12,6 +12,7 @@
 # - polkit? or hyprpolkit
 # - wl-clipboard
 # - nautilus
+# - decrease key repeat delay/rate
 
 # Applications
 # - vlc (or better)
