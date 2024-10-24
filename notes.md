@@ -28,9 +28,14 @@ Setup notes for getting an arch based system setup with my desktop environment.
   - `lazygit`
   - A nerd font e.g. `otf-geist-mono-nerd`
 
+## TODOs
+
+- Set tab defaults to 4 spaces
+
  square check
  download
 󰒓 settings cog
 󰔟 sand timer
 󱍸 sync
  error
+ validation

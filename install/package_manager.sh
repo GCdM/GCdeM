@@ -1,27 +1,57 @@
 #!/bin/bash
 
-# Use paru unless $PACKAGE_MANAGER is set
-package_manager="${PACKAGE_MANAGER:-paru}"
+set -e
 
-# Check if the package_manager is already installed
-if command -v "$package_manager" &>/dev/null; then
-  echo "⏭️ $package_manager is already installed."
+echo "=== =============================================== ==="
+echo " 󰔟  .. 󰣇 . 󰣇 . 󰣇 .. Package manager .. 󰣇 . 󰣇 . 󰣇 ..  󰔟 "
+echo "=== =============================================== ==="
+echo ""
+
+required_env_vars=("PACKAGE_MANAGER")
+current_directory="$(dirname "$(realpath "$0")")"
+"$current_directory/utils/check-variables-are-set.sh" "${required_env_vars[@]}"
+
+if command -v "$PACKAGE_MANAGER" &>/dev/null; then
+	echo "󰣇   $PACKAGE_MANAGER is already installed."
 else
-  read -p ":questionmark: Do you want to install $package_manager? (y/n): " answer
+	read -pr "󰣇  󰆆 Do you want to install $PACKAGE_MANAGER? (y/n): " answer
 
-  case $answer in
-  [Yy]*)
-    echo ":sandtimer: Installing $package_manager..."
+	case $answer in
+	[Yy]*)
+		case $PACKAGE_MANAGER in
+		paru)
+			echo "󰣇  󰔟 paru is being installed..."
 
-    sudo $package_manager -S --needed base-devel
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si
-    ;;
-  *)
-    echo ":cross: Exiting without installing."
-    ;;
-  esac
+			# Make temporary directory to make paru from source
+			mkdir -p "$HOME/TemporaryParuDirectory"
+			cd "$HOME/TemporaryParuDirectory"
+			sudo pacman -S --needed base-devel
+			git clone https://aur.archlinux.org/paru.git
+			cd paru
+			makepkg -si
+			cd current_directory
+
+			echo "󰣇   paru is installed!"
+			;;
+		*)
+			# Missing installation method for PACKAGE_MANAGER
+			echo "󰣇   Missing installation method for $PACKAGE_MANAGER package manager."
+
+			exit 1
+			;;
+		esac
+		;;
+	*)
+		echo "󰣇  󰒬 Skipping $PACKAGE_MANAGER installation."
+		;;
+	esac
 fi
 
+echo "󰣇 󰒓 _ Missing pamac config"
 # TODO setup parallel downloads
+
+echo ""
+echo "=== =============================================== ==="
+echo "   .. 󰣇 . 󰣇 . 󰣇 .. Package manager .. 󰣇 . 󰣇 . 󰣇 ..   "
+echo "=== =============================================== ==="
+echo ""

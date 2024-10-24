@@ -7,7 +7,7 @@
 
 # Check for least one argument
 if [ "$#" -eq 0 ]; then
-	echo "    Usage: $0 VAR1 VAR2 VAR3 ..."
+	echo "    Usage: $0 VAR1 VAR2 VAR3 ..."
 	exit 1
 fi
 
