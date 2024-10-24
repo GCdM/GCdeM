@@ -27,3 +27,10 @@ Setup notes for getting an arch based system setup with my desktop environment.
   - `fd`
   - `lazygit`
   - A nerd font e.g. `otf-geist-mono-nerd`
+
+ square check
+ download
+󰒓 settings cog
+󰔟 sand timer
+󱍸 sync
+ error

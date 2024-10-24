@@ -1,23 +1,34 @@
 #!/bin/bash
 
-echo "=== =========================== ==="
-echo "=== .........  Git  ........... ==="
-echo "=== =========================== ==="
+set -e
+
+echo "=== ==================================== ==="
+echo " 󰔟  ..  .  .  .. Git  ..  .  .  ..  󰔟 "
+echo "=== ==================================== ==="
 echo ""
 
-package_manager="${$PACKAGE_MANAGER:-paru}"
+required_env_vars=("PACKAGE_MANAGER")
+current_directory="$(dirname "$(realpath "$0")")"
+"$current_directory/utils/check-variables-are-set.sh" "${required_env_vars[@]}"
 
 if command -v "git" &>/dev/null; then
-  echo ":check: git is already installed."
+	echo "   git is already installed."
 else
-  echo ":download: Installing git"
-  $package_manager -S git
+	echo "  󰔟 git is being installed..."
+	$PACKAGE_MANAGER -S git
 
-  # Change it to copy existing config file
-  git config --global user.name "GCdM"
-  git config --global user.email "59828466+GCdM@users.noreply.github.com"
-
-  echo ":sparkles: Finished installing git"
+	echo "   git installed!"
 fi
 
+echo " 󰒓 󰔟 git is being configured..."
+# Change it to copy existing config file
+git config --global user.name "GCdM"
+git config --global user.email "59828466+GCdM@users.noreply.github.com"
+
+echo ": 󰒓 󱍸 git is configured!"
+
+echo ""
+echo "=== ==================================== ==="
+echo "   ..  .  .  .. Git  ..  .  .  ..   "
+echo "=== ==================================== ==="
 echo ""

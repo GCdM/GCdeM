@@ -2,9 +2,8 @@
 
 My setup for an Arch-based distro w/ Wayland.
 
-
-
-|  |  |
-|--|--|
-| Compositor | Hyprland |
-
+| Function      | Software  |
+| ------------- | --------- |
+| Compositor    | Hyprland  |
+| Terminal      | Alacritty |
+| Bar & widgets | EWW       |
