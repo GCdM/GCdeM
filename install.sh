@@ -22,9 +22,6 @@ fish -c "set -Ux VISUAL nvim"
 # - nautilus
 # - decrease key repeat delay/rate
 
-# Applications
-# - vlc (or better)
-
 # IDE + dev tools
 # - npm
 # - clang
@@ -36,10 +33,6 @@ fish -c "set -Ux VISUAL nvim"
 
 # Notification system
 # - dunst
-# - -- styling
-
-# Launcher
-# - wofi
 # - -- styling
 
 # Betterfox

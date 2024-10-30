@@ -30,7 +30,10 @@ Setup notes for getting an arch based system setup with my desktop environment.
 
 ## TODOs
 
-- Set tab defaults to 4 spaces
+- Set tab defaults to 4 spaces (add .vimrc to GCdeM)
+- Configure clipboard + wofi (w/ dmenu stuff)
+- Get bigger and better EWW
+  - Or at least add WiFi to current
 
  square check
  download
