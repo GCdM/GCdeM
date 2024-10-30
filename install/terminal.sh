@@ -14,24 +14,24 @@ terminal="${TERMINAL:-alacritty}"
 font_name="GeistMono Nerd Font"
 font_package="otf-geist-mono-nerd"
 
-if command -v $terminal &>/dev/null; then
-  echo ":check: $terminal is already installed."
+if command -v "$terminal" &>/dev/null; then
+	echo ":check: $terminal is already installed."
 else
-  echo ":downloadarrow: Installing $terminal..."
+	echo ":downloadarrow: Installing $terminal..."
 
-  $package_manager -S $terminal
+	$package_manager -S "$terminal"
 
-  echo ":sparkles: Installed $terminal!"
+	echo ":sparkles: Installed $terminal!"
 fi
 
 if [[ $(fc-list | rg -i "$font_name" | wc -l) -gt 0 ]]; then
-  echo ":check: $font_package is already installed."
+	echo ":check: $font_package is already installed."
 else
-  echo ":downloadarrow: Installing $font_package..."
+	echo ":downloadarrow: Installing $font_package..."
 
-  $package_manager -S $font_package
+	$package_manager -S $font_package
 
-  echo ":sparkles: Installed $font_package!"
+	echo ":sparkles: Installed $font_package!"
 fi
 
 # #########################
@@ -65,12 +65,12 @@ echo ":hammer: Finished installing developer tools!"
 # #####################
 echo ""
 if command -v "fish" &>/dev/null; then
-  echo ":check: fish is already installed."
+	echo ":check: fish is already installed."
 else
-  echo ":sandtimer: Installing fish..."
+	echo ":sandtimer: Installing fish..."
 
-  $package_manager -S fish
-  echo ":sparkles: Installed fish!"
+	$package_manager -S fish
+	echo ":sparkles: Installed fish!"
 fi
 
 # oh-my-fish - https://github.com/oh-my-fish/oh-my-fish
