@@ -28,12 +28,19 @@ Setup notes for getting an arch based system setup with my desktop environment.
   - `lazygit`
   - A nerd font e.g. `otf-geist-mono-nerd`
 
+## Resources
+
+<https://wearewaylandnow.com/>
+
 ## TODOs
 
 - Set tab defaults to 4 spaces (add .vimrc to GCdeM)
 - Configure clipboard + wofi (w/ dmenu stuff)
 - Get bigger and better EWW
   - Or at least add WiFi to current
+- Setup udisk
+- Screenshot tool
+- Bluetooth
 
  square check
  download
