@@ -41,6 +41,7 @@ Setup notes for getting an arch based system setup with my desktop environment.
 - Setup udisk
 - Screenshot tool
 - Bluetooth
+- Audio control for video calls debug
 
  square check
  download
