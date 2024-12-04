@@ -43,6 +43,7 @@ Setup notes for getting an arch based system setup with my desktop environment.
 - Bluetooth
 - Audio control for video calls debug
 - Disable middle mouse paste
+- Add a screenshot util
 
  square check
  download

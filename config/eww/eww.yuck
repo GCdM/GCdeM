@@ -39,7 +39,10 @@
                                     :halign "end"                                    
                                     (volume)
                                     (brightness)
+                                    (wifi)
                                     (battery)
+                                    (systray :orientation "horizontal"
+                                             :icon-size 12)
                                     date_of_month))
 
 (defwidget volume []
@@ -69,6 +72,11 @@
                               :active {onchange != ""}
                               :value value
                               :onchange onchange)))
+
+(defwidget wifi []
+                (box :orientation "horizontal"
+                     (box :class "label" " ")
+                     (button :onclick "nm-applet")))
 
 (defpoll time :interval "1s"
               "date '+%H:%M:%S'")
