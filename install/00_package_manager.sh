@@ -47,8 +47,16 @@ else
 	esac
 fi
 
-echo "󰣇 󰒓 _ Missing pamac config"
-# TODO setup parallel downloads
+# Enable parallel downloads in pacman.conf
+if [[ -f /etc/pacman.conf ]]; then
+	number_of_parallel_downloads="10"
+	echo "󰣇 󰒓 󰔟 Enabling parallel downloads in Pacman..."
+	sudo sed -i "s/^#*\(ParallelDownloads\)=.*/\1=$number_of_parallel_downloads/" /etc/pacman.conf
+	echo "󰣇 󰒓  Parallel downloads have been set to $number_of_parallel_downloads."
+else
+	echo "󰣇 󰒓  Missing pacman config"
+	exit 1
+fi
 
 echo ""
 echo "=== =============================================== ==="

@@ -7,10 +7,6 @@ echo " 󰔟  ..  .  .  .. Git ..  .  .  ..  󰔟 "
 echo "=== =================================== ==="
 echo ""
 
-required_env_vars=("")
-current_directory="$(dirname "$(realpath "$0")")"
-"$current_directory/utils/check-variables-are-set.sh" "${required_env_vars[@]}"
-
 if command -v "git" &>/dev/null; then
 	echo "   git is already installed."
 else
