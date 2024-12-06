@@ -9,6 +9,9 @@ export GCDEM_PATH="$HOME/GCdeM/"
 export PACKAGE_MANAGER="paru"
 export TERMINAL="alacritty"
 
+# Install package manager
+./install/00_package_manager.sh
+
 # Set up terminal & shell
 ./install/01_git.sh
 
