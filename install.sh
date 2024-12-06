@@ -1,18 +1,22 @@
 #!/bin/bash
 
-# Set environment variables to be used across install sub-scripts
-fish -c "set -Ux GCDEM_PATH $HOME/GCdeM"
-fish -c "set -Ux PACKAGE_MANAGER paru"
-fish -c "set -Ux TERMINAL alacritty"
+set -e
 
-# Set general env vars
-fish -c "set -Ux VISUAL nvim"
+echo "Running GCdeM installation script"
+
+# # Set environment variables to be used across install sub-scripts
+# fish -c "set -Ux GCDEM_PATH $HOME/GCdeM"
+# fish -c "set -Ux PACKAGE_MANAGER paru"
+# fish -c "set -Ux TERMINAL alacritty"
+#
+# # Set general env vars
+# fish -c "set -Ux VISUAL nvim"
 
 # Setup snapper + btrfs-grub
 
 # Config github (+ SSH)
 
-# Hyprland utilities
+# # Hyprland utilities
 # - hyprpaper
 # - pipewire
 # - brightnessctl
@@ -22,7 +26,7 @@ fish -c "set -Ux VISUAL nvim"
 # - nautilus
 # - decrease key repeat delay/rate
 
-# IDE + dev tools
+# # IDE + dev tools
 # - npm
 # - clang
 # - ripgrep
@@ -31,10 +35,10 @@ fish -c "set -Ux VISUAL nvim"
 # - lazygit
 # - fd
 
-# Notification system
+# # Notification system
 # - dunst
 # - -- styling
 
-# Betterfox
+# # Betterfox
 #
 #
