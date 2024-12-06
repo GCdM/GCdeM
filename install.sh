@@ -4,6 +4,14 @@ set -e
 
 echo "Running GCdeM installation script"
 
+# Set environment variables to be used across install sub-scripts
+export GCDEM_PATH="$HOME/GCdeM/"
+export PACKAGE_MANAGER="paru"
+export TERMINAL="alacritty"
+
+# Set up terminal & shell
+./install/01_git.sh
+
 # # Set environment variables to be used across install sub-scripts
 # fish -c "set -Ux GCDEM_PATH $HOME/GCdeM"
 # fish -c "set -Ux PACKAGE_MANAGER paru"
