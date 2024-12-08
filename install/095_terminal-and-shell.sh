@@ -4,24 +4,21 @@ echo "OOO ============================ OOO"
 echo "OOO ........  Terminal  ........ OOO"
 echo "OOO ============================ OOO"
 
-package_manager="${PACKAGE_MANAGER:-paru}"
-
 # ######################
 # #####  Terminal  #####
 # ######################
 echo ""
-terminal="${TERMINAL:-alacritty}"
 font_name="GeistMono Nerd Font"
 font_package="otf-geist-mono-nerd"
 
-if command -v "$terminal" &>/dev/null; then
-	echo ":check: $terminal is already installed."
+if command -v "$TERMINAL" &>/dev/null; then
+	echo ":check: $TERMINAL Is already installed."
 else
-	echo ":downloadarrow: Installing $terminal..."
+	echo ":downloadarrow: Installing $TERMINAL..."
 
-	$package_manager -S "$terminal"
+	$PACKAGE_MANAGER -S "$TERMINAL"
 
-	echo ":sparkles: Installed $terminal!"
+	echo ":sparkles: Installed $TERMINAL!"
 fi
 
 if [[ $(fc-list | rg -i "$font_name" | wc -l) -gt 0 ]]; then
@@ -29,7 +26,7 @@ if [[ $(fc-list | rg -i "$font_name" | wc -l) -gt 0 ]]; then
 else
 	echo ":downloadarrow: Installing $font_package..."
 
-	$package_manager -S $font_package
+	$PACKAGE_MANAGER -S $font_package
 
 	echo ":sparkles: Installed $font_package!"
 fi
@@ -40,7 +37,7 @@ fi
 echo ""
 echo ":wrench: Installing general utilities..."
 utility_packages=("curl" "tar" "bat" "eza" "btop" "ripgrep")
-$package_manager -S "${utility_packages[@]}"
+$PACKAGE_MANAGER -S "${utility_packages[@]}"
 
 echo ":wrench: Finished installing general utilities!"
 
@@ -69,7 +66,7 @@ if command -v "fish" &>/dev/null; then
 else
 	echo ":sandtimer: Installing fish..."
 
-	$package_manager -S fish
+	$PACKAGE_MANAGER -S fish
 	echo ":sparkles: Installed fish!"
 fi
 
@@ -93,6 +90,11 @@ fisher_plugins="edc/bass"
 fish -c "fisher install $fisher_plugins"
 echo ":fish: :fishrod: Finished installing plugins."
 echo ""
+
+# TODOs
+# - bat
+# - ripgrep
+# - eza
 
 echo "XXX ============================ XXX"
 echo "XXX ........  Terminal  ........ XXX"

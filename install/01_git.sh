@@ -17,7 +17,8 @@ else
 fi
 
 echo " 󰒓 󰔟 git is being configured..."
-# Change it to copy existing config file
+
+# TODO Change it to copy existing config file
 git config --global user.name "GCdM"
 git config --global user.email "59828466+GCdM@users.noreply.github.com"
 git config --global init.defaultBranch "main"

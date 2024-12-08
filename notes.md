@@ -46,10 +46,18 @@ Setup notes for getting an arch based system setup with my desktop environment.
 - Setup `grim` screenshot util
 - Setup fingerprint authentication
 
- square check
- download
-󰒓 settings cog
-󰔟 sand timer
+## Legend
+
+**Action**
+ download/install
+󰚰 update
+󱩎 background services
+󰒓 configuration/settings
 󱍸 sync
+
+**Progress**
+󰔟 start/in progress
+ new thing added (for idempotent actions where  means already exists)
+ done
  error
  validation
