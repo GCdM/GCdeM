@@ -18,6 +18,8 @@ Either way, the host machine will need GitHub access to my private repo.
 
 ### Installing with `curl`
 
+_TODO: Rewrite these instructions to not use `curl`, and just clone + execute_
+
 1. Get a GitHub personal access token, with the `repo` scope.
 2. Execute the script with the following command:
 
