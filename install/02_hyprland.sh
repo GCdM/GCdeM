@@ -8,19 +8,8 @@ echo " 󰔟  ..  .  .  .. Hyprland ..  .  .  ..  󰔟 "
 echo "=== ======================================== ==="
 echo ""
 
-# # Ensure the script is run as root
-# if [[ $EUID -ne 0 ]]; then
-# 	echo "This script must be run as root."
-# 	exit 1
-# fi
+echo "  󰔟 Hyprland + ecosystem - installing..."
 
-# # Update system and install required packages
-# echo "Updating system and installing essential tools..."
-# pacman -Syu --noconfirm
-# pacman -S --noconfirm base-devel git wget curl unzip
-
-# Install Hyprland and related components
-echo "  󰔟 Installing Hyprland + ecosystem..."
 PACKAGES=(
 	hyprland
 	hyprpaper
@@ -46,25 +35,23 @@ PACKAGES=(
 	grim slurp                                                      # For screenshots
 	wl-clipboard                                                    # Clipboard support
 
-	# Extras
-	noto-fonts         # Basic fonts
-	noto-fonts-emoji   # Emoji fonts
-	ttf-jetbrains-mono # JetBrains Mono for terminal fonts
-	mesa               # OpenGL support
-	vulkan-intel       # Vulkan support for Intel (modify for AMD/NVIDIA if needed)
+	mesa         # OpenGL support
+	vulkan-intel # Vulkan support for Intel (modify for AMD/NVIDIA if needed)
 )
 
-pacman -S --noconfirm "${PACKAGES[@]}"
+$PACKAGE_MANAGER -S --noconfirm "${PACKAGES[@]}"
+echo "   Hyprland + ecosystem - installed!"
 
-HYPR_CONFIG_DIR="$HOME/.config/hypr"
-# TODO soft link configuration files
+echo "  󰔟 Hyprland config - syncing..."
 
-# Enable services (optional, depending on use case)
-echo " 󱩎 󰔟 Essential systemctl services - enabling..."
-systemctl enable --now dbus
-systemctl enable --now pipewire
-systemctl enable --now wireplumber
-echo " 󱩎  Essential systemctl services - enabled!"
+ln -s "$GCDEM_PATH/config/hypr/" "$HOME/.config/hypr/"
+
+echo "   Hyprland config - synced!"
+
+# # Enable services
+# echo " 󱩎 󰔟 Essential systemctl services - enabling..."
+# systemctl enable --now <unit>
+# echo " 󱩎  Essential systemctl services - enabled!"
 
 # TODOs
 # - configure dunst
