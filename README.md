@@ -27,3 +27,12 @@ _TODO: Rewrite these instructions to not use `curl`, and just clone + execute_
 curl -H "Authorization: token <GITHUB ACCESS TOKEN>" \
      -L "https://raw.githubusercontent.com/GCdM/GCdeM/main/install.sh" | bash
 ```
+
+## File Structure
+
+```text
+|__ assets      --> wallpapers
+|__ home        --> configuration files relative to $HOME (used for symlinking)
+|__ install     --> installation subscripts (used by install.sh)
+|__ utilities   --> simple bash scripts
+```
