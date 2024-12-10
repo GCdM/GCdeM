@@ -60,8 +60,12 @@ fi
 DESTINATION_PATH="$HOME/$RELATIVE_PATH_FROM_HOME"
 
 if does_path_exist "$DESTINATION_PATH"; then
-	echo "$ICON 󱍸 󰍉 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Found existing files in $DESTINATION_PATH."
-	# TODO Check whether files are already symlinked as expected. If so exit with a success message.
+	echo "$ICON 󱍸 󰍉 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Found existing files in $DESTINATION_PATH"
+
+	if [ "$(readlink -- "$DESTINATION_PATH")" = "$SOURCE_PATH" ]; then
+		echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - $RELATIVE_PATH_FROM_HOME is already synced!"
+		exit 0
+	fi
 
 	BACKUP_DIRECTORY="$HOME/.backup/home"
 	mkdir -p "$BACKUP_DIRECTORY"
