@@ -11,11 +11,18 @@
 # configurations already exist.
 # ###
 
-RELATIVE_PATH_FROM_HOME=false
 ICON="󰈮"
 
 function echo_usage_example() {
-	echo "$ICON 󱍸  Symlink $RELATIVE_PATH_FROM_HOME - USAGE: $0 <relative path (from \$HOME)> [--icon <nerd font icon>]"
+	echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - USAGE: $0 <relative path (from \$HOME)> [--icon <nerd font icon>]"
+}
+
+function does_path_exist() {
+	if [[ -d "$1" || -f "$1" || -L "$1" ]]; then
+		return 0
+	else
+		return 1
+	fi
 }
 
 # Parse arguments
@@ -45,15 +52,15 @@ fi
 
 SOURCE_PATH="$GCDEM_PATH/home/$RELATIVE_PATH_FROM_HOME"
 
-if [[ ! -d "$SOURCE_PATH" ]]; then
-	echo "$ICON 󱍸  Symlink $RELATIVE_PATH_FROM_HOME - GCdeM does not have target files $SOURCE_PATH"
+if ! does_path_exist "$SOURCE_PATH"; then
+	echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - GCdeM does not have target files $SOURCE_PATH"
 	exit 1
 fi
 
 DESTINATION_PATH="$HOME/$RELATIVE_PATH_FROM_HOME"
 
-if [[ -d "$DESTINATION_PATH" ]]; then
-	echo "$ICON 󱍸 󰍉 Symlink $RELATIVE_PATH_FROM_HOME - Found existing files in $DESTINATION_PATH."
+if does_path_exist "$DESTINATION_PATH"; then
+	echo "$ICON 󱍸 󰍉 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Found existing files in $DESTINATION_PATH."
 	# TODO Check whether files are already symlinked as expected. If so exit with a success message.
 
 	BACKUP_DIRECTORY="$HOME/.backup/home"
@@ -61,12 +68,17 @@ if [[ -d "$DESTINATION_PATH" ]]; then
 
 	BACKUP_TIMESTAMP=$(date +"%y-%m-%d.%H_%M_%S")
 	BACKUP_FILENAME="$RELATIVE_PATH_FROM_HOME@$BACKUP_TIMESTAMP" # e.g. ".bashrc@24-12-10.15_37_02"
-	mv "$DESTINATION_PATH" "$BACKUP_DIRECTORY/$BACKUP_FILENAME" 2>/dev/null
+	BACKUP_PATH="$BACKUP_DIRECTORY/$BACKUP_FILENAME"
+	mv "$DESTINATION_PATH" "$BACKUP_PATH" 2>/dev/null
 	# rmdir "$DESTINATION_PATH" 2>/dev/null || echo "Couldn't remove non-empty directory (likely symlink)."
-	echo "$ICON 󱍸 󱍼 Symlink $RELATIVE_PATH_FROM_HOME - Created backup at $BACKUP_DIRECTORY"
+	echo "$ICON 󱍸 󱍼 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Created backup at $BACKUP_PATH"
 fi
 
-echo "$ICON 󱍸 󰔟 Symlink $RELATIVE_PATH_FROM_HOME - Symlinking $SOURCE_PATH..."
+echo "$ICON 󱍸 󰔟 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Symlinking $SOURCE_PATH..."
+
+# TODO make this less hacky maybe
 mkdir -p "$DESTINATION_PATH"
+rmdir "$DESTINATION_PATH"
+
 ln -s "$SOURCE_PATH" "$DESTINATION_PATH"
-echo "$ICON 󱍸  Symlink $RELATIVE_PATH_FROM_HOME - Symlinked $SOURCE_PATH!"
+echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - Symlinked $DESTINATION_PATH!"
