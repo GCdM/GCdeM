@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# ###
+# Script for symlinking files from $GCDEM_PATH/home to $HOME.
+#
+# Used to store common configuration files (.config/*, dotfiles,
+# etc...) in this repo, and easily sync them with the current
+# machine by symlinking them.
+#
+# Also creates backups in $HOME/.backup/home/ in case existing
+# configurations already exist.
+# ###
+
+RELATIVE_PATH_FROM_HOME=false
+ICON="󰈮"
+
+function echo_usage_example() {
+	echo "$ICON 󱍸  Symlink $RELATIVE_PATH_FROM_HOME - USAGE: $0 <relative path (from \$HOME)> [--icon <nerd font icon>]"
+}
+
+# Parse arguments
+while [[ "$#" -gt 0 ]]; do
+	case "$1" in
+	--icon)
+		ICON="$2"
+		shift 2
+		;;
+	*)
+		if [[ ! $RELATIVE_PATH_FROM_HOME ]]; then
+			RELATIVE_PATH_FROM_HOME="$1"
+		else
+			echo_usage_example
+			exit 1
+		fi
+
+		shift 1
+		;;
+	esac
+done
+
+if [[ ! $RELATIVE_PATH_FROM_HOME ]]; then
+	echo_usage_example
+	exit 1
+fi
+
+SOURCE_PATH="$GCDEM_PATH/home/$RELATIVE_PATH_FROM_HOME"
+
+if [[ ! -d "$SOURCE_PATH" ]]; then
+	echo "$ICON 󱍸  Symlink $RELATIVE_PATH_FROM_HOME - GCdeM does not have target files $SOURCE_PATH"
+	exit 1
+fi
+
+DESTINATION_PATH="$HOME/$RELATIVE_PATH_FROM_HOME"
+
+if [[ -d "$DESTINATION_PATH" ]]; then
+	echo "$ICON 󱍸 󰍉 Symlink $RELATIVE_PATH_FROM_HOME - Found existing files in $DESTINATION_PATH."
+	# TODO Check whether files are already symlinked as expected. If so exit with a success message.
+
+	BACKUP_DIRECTORY="$HOME/.backup/home"
+	mkdir -p "$BACKUP_DIRECTORY"
+
+	BACKUP_TIMESTAMP=$(date +"%y-%m-%d.%H_%M_%S")
+	BACKUP_FILENAME="$RELATIVE_PATH_FROM_HOME@$BACKUP_TIMESTAMP" # e.g. ".bashrc@24-12-10.15_37_02"
+	mv "$DESTINATION_PATH" "$BACKUP_DIRECTORY/$BACKUP_FILENAME" 2>/dev/null
+	# rmdir "$DESTINATION_PATH" 2>/dev/null || echo "Couldn't remove non-empty directory (likely symlink)."
+	echo "$ICON 󱍸 󱍼 Symlink $RELATIVE_PATH_FROM_HOME - Created backup at $BACKUP_DIRECTORY"
+fi
+
+echo "$ICON 󱍸 󰔟 Symlink $RELATIVE_PATH_FROM_HOME - Symlinking $SOURCE_PATH..."
+mkdir -p "$DESTINATION_PATH"
+ln -s "$SOURCE_PATH" "$DESTINATION_PATH"
+echo "$ICON 󱍸  Symlink $RELATIVE_PATH_FROM_HOME - Symlinked $SOURCE_PATH!"
