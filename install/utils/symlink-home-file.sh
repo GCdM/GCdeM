@@ -63,7 +63,7 @@ if does_path_exist "$DESTINATION_PATH"; then
 	echo "$ICON 󱍸 󰍉 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Found existing files in $DESTINATION_PATH"
 
 	if [ "$(readlink -- "$DESTINATION_PATH")" = "$SOURCE_PATH" ]; then
-		echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - $RELATIVE_PATH_FROM_HOME is already synced!"
+		echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - Looks like $RELATIVE_PATH_FROM_HOME is already synced!"
 		exit 0
 	fi
 
