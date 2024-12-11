@@ -57,7 +57,9 @@ Setup notes for getting an arch based system setup with my desktop environment.
 
 **Progress**
 󰔟 start/in progress
- new thing added (for idempotent actions where  means already exists)
- done
+ new thing added (for idempotent actions where  means already exists)
+ nothing to do
+ done/finished
  error
  validation
+󰍉 found

@@ -8,7 +8,7 @@ echo " 󰔟  ..  .  .  .. Hyprland ..  .  .  ..  󰔟 "
 echo "=== ======================================== ==="
 echo ""
 
-echo "  󰔟 Hyprland + ecosystem - installing..."
+echo "  󰔟 [ Hyprland WM ] - Installing Hyprland + ecosystem packages..."
 
 PACKAGES=(
 	hyprland
@@ -39,14 +39,15 @@ PACKAGES=(
 	vulkan-intel # Vulkan support for Intel (modify for AMD/NVIDIA if needed)
 )
 
-$PACKAGE_MANAGER -S --noconfirm "${PACKAGES[@]}"
-echo "   Hyprland + ecosystem - installed!"
+CURRENT_DIRECTORY="$(dirname "$(realpath "$0")")"
 
-echo "  󰔟 Hyprland config - syncing..."
+"$CURRENT_DIRECTORY/utils/install-packages.sh" "${PACKAGES[@]}" --icon ""
 
-ln -s "$GCDEM_PATH/config/hypr/" "$HOME/.config/hypr/"
+echo "   [ Hyprland WM ] - Hyprland + ecosystem packages installed!"
 
-echo "   Hyprland config - synced!"
+echo "  󰔟 [ Hyprland WM ] - Hyprland is being configured..."
+"$CURRENT_DIRECTORY/utils/symlink-home-file.sh" ".config/hypr" --icon ""
+echo "   [ Hyprland WM ] - Hyprland is configured!"
 
 # # Enable services
 # echo " 󱩎 󰔟 Essential systemctl services - enabling..."

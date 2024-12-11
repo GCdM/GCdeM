@@ -8,22 +8,20 @@ echo "=== =================================== ==="
 echo ""
 
 if command -v "git" &>/dev/null; then
-	echo "   git is already installed."
+	echo "   [ Install git ] - git is already installed."
 else
-	echo "  󰔟 git is being installed..."
+	echo "  󰔟 [ Install git ] - git is being installed..."
 	$PACKAGE_MANAGER -S git
 
-	echo "   git installed!"
+	echo "   [ Install git ] - git installed!"
 fi
 
-echo " 󰒓 󰔟 git is being configured..."
+echo " 󰒓 󰔟 [ Install git ] - git is being configured..."
 
-# TODO Change it to copy existing config file
-git config --global user.name "GCdM"
-git config --global user.email "59828466+GCdM@users.noreply.github.com"
-git config --global init.defaultBranch "main"
+current_directory="$(dirname "$(realpath "$0")")"
+"$current_directory/utils/symlink-home-file.sh" ".gitconfig" --icon ""
 
-echo " 󰒓 󱍸 git is configured!"
+echo " 󰒓 󱍸 [ Install git ] - git is configured!"
 
 echo ""
 echo "=== ==================================== ==="

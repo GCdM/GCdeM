@@ -12,7 +12,7 @@ current_directory="$(dirname "$(realpath "$0")")"
 "$current_directory/utils/check-variables-are-set.sh" "${required_env_vars[@]}"
 
 if command -v "$PACKAGE_MANAGER" &>/dev/null; then
-	echo "󰣇   [ Install package manager ] - Package manager $PACKAGE_MANAGER is already installed."
+	echo "󰣇   [ Install package manager ] - Package manager $PACKAGE_MANAGER is already installed."
 else
 	read -pr "󰣇  󰆆 Do you want to install $PACKAGE_MANAGER? (y/n): " answer
 
@@ -51,7 +51,7 @@ fi
 if [[ -f /etc/pacman.conf ]]; then
 	number_of_parallel_downloads="10"
 	if grep -qE "^\s*ParallelDownloads\s*=\s*$number_of_parallel_downloads\b" /etc/pacman.conf; then
-		echo "󰣇 󰒓  [ Install package manager ] - Parallel downloads are already set to $number_of_parallel_downloads."
+		echo "󰣇 󰒓  [ Install package manager ] - Parallel downloads are already set to $number_of_parallel_downloads."
 	else
 		echo "󰣇 󰒓 󰔟 [ Install package manager ] - Enabling parallel downloads in Pacman..."
 		sudo sed -i "s/^#*\(ParallelDownloads\)=.*/\1=$number_of_parallel_downloads/" /etc/pacman.conf
