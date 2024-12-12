@@ -33,4 +33,8 @@ if status is-interactive
         echo Done configuring $system_directory
         cd -
     end
+
+    set -gx NVM_DIR $HOME/.nvm
+    [ -s $NVM_DIR/nvm.sh ]; and bass source $NVM_DIR/nvm.sh
+    [ -s $NVM_DIR/completions/nvm.fish ]; and source $NVM_DIR/completions/nvm.fish
 end
