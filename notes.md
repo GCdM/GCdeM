@@ -18,7 +18,7 @@ Setup notes for getting an arch based system setup with my desktop environment.
   - `hyprland` + configuration
   - `hyprpaper` + configuration
   - `wofi` + configuration
-  - `waybar` + configuration
+  - `eww` + configuration
   - `brightnessctl`
   - `firefox-developer-edition` + betterfox
 - Setup my IDE:
@@ -34,7 +34,6 @@ Setup notes for getting an arch based system setup with my desktop environment.
 
 ## TODOs
 
-- Set tab defaults to 4 spaces (add .vimrc to GCdeM)
 - Configure clipboard + wofi (w/ dmenu stuff)
 - Get bigger and better EWW
   - Or at least add WiFi to current
