@@ -31,6 +31,8 @@ else
 			makepkg -si
 			cd current_directory
 
+			# TODO investigate whether installing `bat` give correct syntax highlighting
+
 			echo "󰣇   [ Install package manager ] - paru is installed!"
 			;;
 		*)
