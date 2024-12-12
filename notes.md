@@ -11,6 +11,7 @@ Setup notes for getting an arch based system setup with my desktop environment.
 - Setup terminal
   - `fish` + configuration
     - `fisher` to install nvm.fish: `fisher install jorgebucaran/nvm.fish`
+    - MAYBE look into `fnm` would make `npm` available for necessary applications (e.g. nvim plugins)
   - `alacritty`
   - `eza`
   - `bat`
