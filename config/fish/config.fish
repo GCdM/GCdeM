@@ -35,6 +35,6 @@ if status is-interactive
     end
 
     set -gx NVM_DIR $HOME/.nvm
-    [ -s $NVM_DIR/nvm.sh ]; and bass source $NVM_DIR/nvm.sh
+    [ -s $NVM_DIR/nvm.sh ]; and bass source $NVM_DIR/nvm.sh # ';' nvm use default &>/dev/null # TODO, fix so default version is always loaded
     [ -s $NVM_DIR/completions/nvm.fish ]; and source $NVM_DIR/completions/nvm.fish
 end
