@@ -1,0 +1,92 @@
+; Adapted from https://github.com/elkowar/eww/blob/master/examples/eww-bar/eww.yuck
+(defwindow bar 
+           :monitor 0
+           :exclusive true
+           :geometry (geometry :width "100%"
+                               :height "10px"
+                               :anchor "top center")
+           (bar))
+
+(defwidget bar []
+           (centerbox :orientation "horizontal"
+                      (left_hand_section)
+                      time
+                      (right_hand_section)))
+
+(defwidget left_hand_section []
+                             (workspaces))
+(defwidget workspaces []
+                      (box :class "workspaces"
+                                  :orientation "horizontal"
+                                  :space-evenly true
+                                  :halign "start"
+                                  :spacing 15
+                                  (button :onclick "wmctrl -s 0" 1)
+                                  (button :onclick "wmctrl -s 1" 2)
+                                  (button :onclick "wmctrl -s 2" 3)
+                                  (button :onclick "wmctrl -s 3" 4)
+                                  (button :onclick "wmctrl -s 4" 5)
+                                  (button :onclick "wmctrl -s 5" 6)
+                                  (button :onclick "wmctrl -s 6" 7)
+                                  (button :onclick "wmctrl -s 7" 8)
+                                  (button :onclick "wmctrl -s 8" 9)))
+
+(defwidget right_hand_section []
+                              (box :class "sidestuff" 
+                                    :orientation "horizontal" 
+                                    :spacing 15
+                                    :space-evenly false 
+                                    :halign "end"                                    
+                                    (volume)
+                                    (brightness)
+                                    (wifi)
+                                    (battery)
+                                    (systray :orientation "horizontal"
+                                             :icon-size 12)
+                                    date_of_month))
+
+(defwidget volume []
+                  (metric :label "󰕾"
+                          :value current_volume
+                          :onchange ""))
+
+(defwidget brightness []
+                      (metric :label "󰃟"
+                              :value current_brightness
+                              :onchange ""))
+
+(defwidget battery []
+                   (box :orientation "horizontal"
+                        :class "battery"
+                        (label :text "󱊣")
+                        {EWW_BATTERY.BAT1.capacity}"%"))
+
+
+(defwidget metric [label value onchange]
+                  (box :orientation "horizontal"
+                       :class "metric"
+                       :space-evenly false
+                       (box :class "label" label)
+                       (scale :min 0
+                              :max 100
+                              :active {onchange != ""}
+                              :value value
+                              :onchange onchange)))
+
+(defwidget wifi []
+                (box :orientation "horizontal"
+                     (box :class "label" " ")
+                     (button :onclick "nm-applet")))
+
+(defpoll time :interval "1s"
+              "date '+%H:%M:%S'")
+
+(defpoll date_of_month :interval "10s"
+                       "date '+%d %b'")
+
+(defpoll current_volume :interval "0.5s"
+                        "~/GCdeM/utilities/current-volume.sh")
+
+(defpoll current_brightness :interval "0.5s"
+                            "~/GCdeM/utilities/current-brightness.sh")
+
