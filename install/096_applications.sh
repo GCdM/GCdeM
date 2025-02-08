@@ -2,3 +2,4 @@
 
 # - vlc (or better?)
 # - firefox (w/ betterfox)
+# - loupe (image viewer)

@@ -8,5 +8,6 @@
 # - nautilus
 # - wofi
 # - a GUI network manager
+#   - nmapplet? w/ EWW bar
 
 # - _some clipboard manager_
