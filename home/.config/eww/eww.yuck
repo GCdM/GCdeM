@@ -1,4 +1,7 @@
-; Adapted from https://github.com/elkowar/eww/blob/master/examples/eww-bar/eww.yuck
+(include "./status_bar/eww.yuck")
+; ;
+; ; Adapted from https://github.com/elkowar/eww/blob/master/examples/eww-bar/eww.yuck
+; ;
 (defwindow bar 
            :monitor 0
            :exclusive true

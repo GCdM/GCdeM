@@ -1,0 +1,26 @@
+(deflisten get_workspaces 
+    :initial "[]" 
+    "bash ~/.config/eww/status_bar/workspaces/get-workspaces.sh")
+
+(deflisten get_active_workspace 
+    :initial "1" 
+    "bash ~/.config/eww/status_bar/workspaces/get-active-workspace.sh")
+
+(defwidget workspaces_widget []
+    (box 
+        :class "workspaces-widget" 
+        :space-evenly true 
+        :halign "start"
+        (label 
+            :text "${get_workspaces}${get_active_workspace}" 
+            :visible false)
+        (for workspace in get_workspaces
+            (eventbox 
+                :onclick "hyprctl dispatch workspace ${workspace.id}"
+                :visible {workspace.id == get_active_workspace || workspace.windows > 0}
+                (box 
+                    :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"}"
+                    (label 
+                       :text "${workspace.id}" 
+                       :class "workspace-entry ${workspace.id == get_active_workspace ? "current" : ""}"))))))
+
