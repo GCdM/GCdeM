@@ -11,3 +11,8 @@
 #   - nmapplet? w/ EWW bar
 
 # - _some clipboard manager_
+#
+# Laptop specific stuff - https://wiki.archlinux.org/title/Laptop
+# - batsignal - battery daemon (needs `systemctl --user enable...`)
+# - fingerprint scanner
+# -
