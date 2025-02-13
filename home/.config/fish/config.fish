@@ -1,28 +1,30 @@
 if status is-interactive
     set fish_greeting
 
-    abbr -a l eza -Alh --group-directories-first
+    alias l="eza -Alh --group-directories-first"
     abbr -a dark brightnessctl s 1
 
     # 
     # A function for configuring different components of gcdemv
     #
-    function gcdemv
+    function gcdem
+        set -q GCDEM_PATH; or set -f GCDEM_PATH "$HOME/GCdeM"
+
         set -l system_to_config $argv[1]
 
         switch $system_to_config
-            case fish
-                set -f system_directory $HOME/.config/fish/
-            case hypr
-                set -f system_directory $HOME/.config/hypr/
-            case waybar
-                set -f system_directory $HOME/.config/waybar/
+            case ''
+                set -f system_directory $GCDEM_PATH
             case maidiyi
-                set -f system_directory $HOME/.config/nvim/
-            case gcdemv
-                set -f system_directory $HOME
-            case dotconfig
-                set -f system_directory $HOME/.config/
+                set -f system_directory $HOME/.config/nvim
+            case fish
+                set -f system_directory $GCDEM_PATH/home/.config/fish
+            case hypr
+                set -f system_directory $GCDEM_PATH/home/.config/hypr
+            case eww
+                set -f system_directory $GCDEM_PATH/home/.config/eww
+            case .config
+                set -f system_directory $GCDEM_PATH/home/.config
             case '*'
                 echo Unrecognised gcdemv component: $system_to_config
                 return
@@ -30,7 +32,7 @@ if status is-interactive
 
         cd $system_directory
         $VISUAL .
-        echo Done configuring $system_directory
+        echo  Done configuring $system_directory
         cd -
     end
 
