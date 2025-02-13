@@ -75,6 +75,7 @@ if does_path_exist "$DESTINATION_PATH"; then
 	BACKUP_TIMESTAMP=$(date +"%y-%m-%d.%H_%M_%S")
 	BACKUP_FILENAME="$RELATIVE_PATH_FROM_HOME@$BACKUP_TIMESTAMP" # e.g. ".bashrc@24-12-10.15_37_02"
 	BACKUP_PATH="$BACKUP_DIRECTORY/$BACKUP_FILENAME"
+	mkdir -p "$BACKUP_PATH"
 	mv "$DESTINATION_PATH" "$BACKUP_PATH" 2>/dev/null
 	# rmdir "$DESTINATION_PATH" 2>/dev/null || echo "Couldn't remove non-empty directory (likely symlink)."
 	echo "$ICON 󱍸 󱍼 [ Symlink $RELATIVE_PATH_FROM_HOME ] - Created backup at $BACKUP_PATH"
