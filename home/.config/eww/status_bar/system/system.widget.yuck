@@ -1,27 +1,64 @@
-; power
-; wifi
-; brightness
-; volume
-; bluetooth
-; battery
-
 (defwidget system_widget []
     (box
         :orientation "horizontal"
         :halign "end"
-        (label :text "SYSTEM WIDGET")
-        (power_button)))
+        :spacing 5
+        (bluetooth_button)
+        (volume_button)
+        (brightness_button)
+        (wifi_button)
+        (battery_button)
+        (power_button)
+        (date_button)))
 
+(defwidget bluetooth_button []
+    (label :text "󰂱"))
+
+(defpoll volume_poll
+    :interval "0.2s"
+    "~/.config/eww/scripts/current-volume.sh")
+(defwidget volume_button []
+    (label 
+        :class "volume_button"
+        :text "󰕾 ${volume_poll}"))
+
+(defpoll brightness_poll
+    :interval "0.2s"
+    "~/.config/eww/scripts/current-brightness.sh")
+(defwidget brightness_button []
+    (label 
+        :class "brightness_button"
+        :text " ${brightness_poll}"))
+
+(defpoll wifi_signal_poll
+    :initial "__"
+    :interval "2.0s"
+    "~/.config/eww/scripts/wifi-signal.sh")
 (defwidget wifi_button []
     (eventbox
+        :class "wifi_button"
         :onclick "nm-applet"
-        (label :text "assfasdf")))
+        (label :text " ${wifi_signal_poll}")))
      
+(defpoll date_poll 
+    :interval "10s"
+    "date '+%d %b'")
+(defwidget date_button []
+    (label 
+        :class "date_button"
+        :text date_poll))
+
+(defwidget battery_button []
+    (box
+        :orientation "horizontal"
+        :class "battery_button"
+        (label
+            :class "battery_button"
+            :text "󱊣 ${EWW_BATTERY.BAT1.capacity}")))
 
 (defwidget power_button []
     (eventbox
+        :class "power_button"
         :onclick "notify-send 'LOCK!' 'Jk... I cannot :('"
         (label :text "")))
 
-(defpoll date_poll :interval "10s"
-                       "date '+%d %b'")

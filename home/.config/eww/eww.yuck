@@ -89,8 +89,8 @@
                        "date '+%d %b'")
 
 (defpoll current_volume :interval "0.5s"
-                        "~/GCdeM/utilities/current-volume.sh")
+                        "~/.config/eww/scripts/current-volume.sh")
 
 (defpoll current_brightness :interval "0.5s"
-                            "~/GCdeM/utilities/current-brightness.sh")
+                            "~/.config/eww/scripts/current-brightness.sh")
 
