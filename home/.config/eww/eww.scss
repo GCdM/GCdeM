@@ -1,14 +1,16 @@
+@import "status_bar/status_bar.window.scss";
+
 * {
   all: unset; // Unsets everything so you can style everything from scratch
   font-family: "GeistMono Nerd Font, Phosphor"
 }
 
 .status_bar {
-  font-size: 1.1em;
+  font-size: 1.05em;
   background-color: #100030;
-  padding: 5px;
 }
 
+// -------------------------------
 // Global Styles
 .bar {
   background-color: #3a3a3a;
@@ -47,7 +49,3 @@
 .workspaces button:hover {
   color: #D35D6E;
 }
-
-// -------------------------------
-
-@import "status_bar/workspaces/workspaces.widget.scss"

@@ -7,21 +7,23 @@
                    :anchor "top center")
         (status_bar_widget))
 
+
 (defwidget status_bar_widget []
         (centerbox :orientation "horizontal"
-                 (status_bar_left)
-                 (status_bar_center)
-                 (status_bar_right)))
+                (status_bar_left)
+                (clock_widget)
+                (status_bar_right)))
 
 (include "./status_bar/workspaces/workspaces.widget.yuck")
-
 (defwidget status_bar_left []
         (workspaces_widget))
 
-
+(include "./status_bar/clock/clock.widget.yuck")
 (defwidget status_bar_center []
-        (label :text "CENTER"))
+        (clock_widget))
 
+
+(include "./status_bar/system/system.widget.yuck")
 (defwidget status_bar_right []
-        (label :text "RIGHT"))
+        (system_widget))
 

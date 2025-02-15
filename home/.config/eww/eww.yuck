@@ -1,4 +1,5 @@
-(include "./status_bar/eww.yuck")
+(include "./status_bar/status_bar.window.yuck")
+
 ; ;
 ; ; Adapted from https://github.com/elkowar/eww/blob/master/examples/eww-bar/eww.yuck
 ; ;

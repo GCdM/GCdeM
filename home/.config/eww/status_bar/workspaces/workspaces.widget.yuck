@@ -1,10 +1,10 @@
 (deflisten get_workspaces 
     :initial "[]" 
-    "bash ~/.config/eww/status_bar/workspaces/get-workspaces.sh")
+    "bash ~/.config/eww/status_bar/workspaces/scripts/get-workspaces.sh")
 
 (deflisten get_active_workspace 
     :initial "1" 
-    "bash ~/.config/eww/status_bar/workspaces/get-active-workspace.sh")
+    "bash ~/.config/eww/status_bar/workspaces/scripts/get-active-workspace.sh")
 
 (defwidget workspaces_widget []
     (box 

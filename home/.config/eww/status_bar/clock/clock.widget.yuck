@@ -1,0 +1,7 @@
+(defwidget clock_widget []
+        (label :text time_poll))
+
+(defpoll time_poll :interval "1s"
+        "date '+%H:%M:%S'")
+
+

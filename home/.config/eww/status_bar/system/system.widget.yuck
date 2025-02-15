@@ -1,0 +1,27 @@
+; power
+; wifi
+; brightness
+; volume
+; bluetooth
+; battery
+
+(defwidget system_widget []
+    (box
+        :orientation "horizontal"
+        :halign "end"
+        (label :text "SYSTEM WIDGET")
+        (power_button)))
+
+(defwidget wifi_button []
+    (eventbox
+        :onclick "nm-applet"
+        (label :text "assfasdf")))
+     
+
+(defwidget power_button []
+    (eventbox
+        :onclick "notify-send 'LOCK!' 'Jk... I cannot :('"
+        (label :text "")))
+
+(defpoll date_poll :interval "10s"
+                       "date '+%d %b'")
