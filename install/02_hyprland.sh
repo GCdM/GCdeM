@@ -32,7 +32,7 @@ PACKAGES=(
 
 	dunst libnotify                                                 # Notifications
 	pipewire wireplumber pipewire-alsa pipewire-jack pipewire-pulse # Audio support
-	grim slurp                                                      # For screenshots
+	playerctl                                                       # Utility for media player controls (MPRIS)
 	wl-clipboard                                                    # Clipboard support
 
 	mesa         # OpenGL support
@@ -56,7 +56,8 @@ echo "   [ Hyprland WM ] - Hyprland is configured!"
 
 # TODOs
 # - configure dunst
-# - learn + set up grim screenshot tool (+ slurp?)
+# - learn + set up grim/hyprshot screenshot tool (+ slurp?)
+# - add keybindings
 
 echo "=== ======================================== ==="
 echo "   ..  .  .  .. Hyprland ..  .  .  ..   "

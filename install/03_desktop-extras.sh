@@ -9,7 +9,9 @@
 # - wofi
 # - a GUI network manager
 #   - nmapplet? w/ EWW bar
-
+# - USB automatic mounting/detection
+# - grim slurp
+#	- OR hyprshot
 # - _some clipboard manager_
 #
 # Laptop specific stuff - https://wiki.archlinux.org/title/Laptop

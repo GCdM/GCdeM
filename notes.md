@@ -43,8 +43,14 @@ Setup notes for getting an arch based system setup with my desktop environment.
 - Bluetooth
 - Audio control for video calls debug
 - Disable middle mouse paste
-- Setup `grim` screenshot util
+- Setup `grim`/`hyprshot` screenshot util
 - Setup fingerprint authentication
+- Make `wofi` even prettier
+- Emoji manager (e.g. `wofi-emoji`/`wofimoji`)
+- Gamma & day/night adjustment (e.g. `hyprshade`/`hyprsunset`)
+- Notification daemon: either `swaync` or `dunst`
+  - w/ history, preferably on time in EWW bar
+  - On Screen Display (e.g. [SwayOSD](https://github.com/ErikReider/SwayOSD)) for volume/brightness
 
 ## Legend
 
