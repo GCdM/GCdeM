@@ -52,9 +52,11 @@
     :interval "0.2s"
     "~/.config/eww/scripts/current-volume.sh")
 (defwidget volume_button []
-    (label 
+    (button
         :class "volume_button group_bubble"
-        :text "󰕾 ${volume_poll}"))
+        :onclick "~/.config/eww/scripts/launch-pwvucontrol.sh"
+        (label 
+            :text "󰕾 ${volume_poll}")))
 
 (defpoll brightness_poll
     :interval "0.2s"
@@ -71,7 +73,6 @@
 (defwidget wifi_button []
     (box
         :class "wifi_button group_bubble"
-        :onclick "nm-applet"
         (label :text "󰤥 ${wifi_signal_poll}")))
      
 (defpoll date_poll 
