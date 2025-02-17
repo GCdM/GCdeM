@@ -1,7 +1,9 @@
 (defwidget clock_widget []
-        (label :text time_poll))
+    (label 
+        :class "clock_widget group_bubble"
+        :text time_poll))
 
 (defpoll time_poll :interval "1s"
-        "date '+%H:%M:%S'")
+    "date '+%H:%M:%S'")
 
 

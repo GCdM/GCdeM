@@ -1,14 +1,15 @@
-@import "./theme.variables.scss";
+@import "../theme/theme.variables.scss";
 
 .status_bar {
   font-family: "GeistMono Nerd Font";
   font-size: 16px;
-  font-weight: 500;
-  background-color: rgba(10, 10, 20, 0.4);
+  font-weight: 600;
+  color: $font-color;
+  background-color: $main-background-color;
   padding-right: 15px;
   padding-left: 15px;
-  // padding-top: 5px;
-  // padding-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 // .status_bar_window {
@@ -16,7 +17,7 @@
 
 .group_bubble {
   border-radius: 10px;
-  background-color: $group-background;
+  background-color: $group-background-color;
   padding-right: 18px;
   padding-left: 18px;
 }
