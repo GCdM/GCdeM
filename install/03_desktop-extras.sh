@@ -9,6 +9,7 @@
 # - wofi
 # - a GUI network manager
 #   - nmapplet? w/ EWW bar
+#   - wofi network manager? https://github.com/firecat53/networkmanager-dmenu
 # - USB automatic mounting/detection
 # - grim slurp
 #	- OR hyprshot

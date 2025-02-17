@@ -8,9 +8,10 @@
 
 (defwidget workspaces_widget []
     (box 
-        :class "workspaces-widget" 
-        :space-evenly true 
+        :class "workspaces_widget" 
+        :orientation "horizontal"
         :halign "start"
+        :space-evenly true 
         (label 
             :text "${get_workspaces}${get_active_workspace}" 
             :visible false)
@@ -19,8 +20,8 @@
                 :onclick "hyprctl dispatch workspace ${workspace.id}"
                 :visible {workspace.id == get_active_workspace || workspace.windows > 0}
                 (box 
-                    :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"}"
+                    :class "workspace_entry ${workspace.windows > 0 ? "occupied" : "empty"}"
                     (label 
                        :text "${workspace.id}" 
-                       :class "workspace-entry ${workspace.id == get_active_workspace ? "current" : ""}"))))))
+                       :class "workspace_entry ${workspace.id == get_active_workspace ? "current" : ""}"))))))
 

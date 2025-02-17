@@ -1,0 +1,45 @@
+@import "../theme.variables.scss";
+
+.system_widget {
+  color: $font-color;
+}
+
+// .system_widget_group {
+//   background-color: $group-background;
+//   border-radius: 15px;
+//   padding-right: 18px;
+//   padding-left: 18px;
+// }
+
+.sensors_group {
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 20px;
+
+  & * {
+    // all children
+    border-radius: 50px;
+  }
+
+  .screen_share_indicator {
+    font-size: 24px;
+    color: rgba(0, 180, 0, 1);
+    background-color: rgba(0, 100, 0, 0.7);
+  }
+
+  .camera_indicator {
+    font-size: 28px;
+    color: rgba(200, 0, 0, 1);
+    background-color: rgba(150, 0, 0, 0.5);
+  }
+
+  .microphone_indicator {
+    color: rgba(200, 200, 0, 1);
+    background-color: rgba(200, 200, 0, 0.5)
+  }
+
+  .bluetooth_indicator {
+    color: rgba(0, 0, 200, 1);
+    background-color: rgba(0, 0, 200, 0.2);
+  }
+}

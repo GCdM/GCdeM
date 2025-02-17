@@ -1,3 +1,26 @@
+@import "./theme.variables.scss";
+
+.status_bar {
+  font-family: "GeistMono Nerd Font";
+  font-size: 16px;
+  font-weight: 500;
+  background-color: rgba(10, 10, 20, 0.4);
+  padding-right: 15px;
+  padding-left: 15px;
+  // padding-top: 5px;
+  // padding-bottom: 5px;
+}
+
+// .status_bar_window {
+// }
+
+.group_bubble {
+  border-radius: 10px;
+  background-color: $group-background;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
 @import "./clock/clock.widget.scss";
 @import "./system/system.widget.scss";
 @import "./workspaces/workspaces.widget.scss";

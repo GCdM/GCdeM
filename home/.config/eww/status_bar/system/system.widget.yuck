@@ -1,25 +1,59 @@
 (defwidget system_widget []
     (box
+        :class "system_widget"
         :orientation "horizontal"
         :halign "end"
-        :spacing 5
-        (bluetooth_button)
+        :space-evenly false
+        :spacing 12
+        (systray
+            ; :class "systray group_bubble"
+            :orientation "horizontal"
+            :icon-size 25)
+        (sensors_group)
         (volume_button)
         (brightness_button)
         (wifi_button)
         (battery_button)
-        (power_button)
+        ; (power_button)
         (date_button)))
 
-(defwidget bluetooth_button []
-    (label :text "󰂱"))
+(defwidget sensors_group []
+    (box
+        :class "sensors_group "
+        :orientation "horizontal"
+        :halign "center"
+        :space-evenly true
+        :spacing 10
+        (sensor_indicator 
+            :class "screen_share_indicator"
+            :text ""
+            :xalign 0.42)
+        (sensor_indicator 
+            :class "camera_indicator"
+            :text "󰤙"
+            :xalign 0.5)
+        (sensor_indicator 
+            :class "microphone_indicator"
+            :text ""
+            :xalign 0.5)
+        (sensor_indicator 
+            :class "bluetooth_indicator system_widget_button"
+            :text "󰂱"
+            :xalign 0.45)))
+ 
+(defwidget sensor_indicator [class text xalign]
+    (label
+        :class class
+        :width 50
+        :text text
+        :xalign xalign))
 
 (defpoll volume_poll
     :interval "0.2s"
     "~/.config/eww/scripts/current-volume.sh")
 (defwidget volume_button []
     (label 
-        :class "volume_button"
+        :class "volume_button group_bubble"
         :text "󰕾 ${volume_poll}"))
 
 (defpoll brightness_poll
@@ -27,38 +61,38 @@
     "~/.config/eww/scripts/current-brightness.sh")
 (defwidget brightness_button []
     (label 
-        :class "brightness_button"
+        :class "brightness_button group_bubble"
         :text " ${brightness_poll}"))
 
 (defpoll wifi_signal_poll
     :initial "__"
-    :interval "2.0s"
+    :interval "3.0s"
     "~/.config/eww/scripts/wifi-signal.sh")
 (defwidget wifi_button []
-    (eventbox
-        :class "wifi_button"
+    (box
+        :class "wifi_button group_bubble"
         :onclick "nm-applet"
-        (label :text " ${wifi_signal_poll}")))
+        (label :text "󰤥 ${wifi_signal_poll}")))
      
 (defpoll date_poll 
     :interval "10s"
-    "date '+%d %b'")
+    "date '+%d/%m'")
 (defwidget date_button []
     (label 
-        :class "date_button"
-        :text date_poll))
+        :class "date_button group_bubble"
+        :text "󰃮 ${ date_poll }"))
 
 (defwidget battery_button []
     (box
+        :class "battery_button group_bubble"
         :orientation "horizontal"
-        :class "battery_button"
         (label
             :class "battery_button"
             :text "󱊣 ${EWW_BATTERY.BAT1.capacity}")))
 
 (defwidget power_button []
     (eventbox
-        :class "power_button"
+        :class "power_button group_bubble"
         :onclick "notify-send 'LOCK!' 'Jk... I cannot :('"
         (label :text "")))
 

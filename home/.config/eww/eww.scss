@@ -1,14 +1,8 @@
-@import "./status_bar/status_bar.window.scss";
-
 * {
   all: unset; // Unsets everything so you can style everything from scratch
-  font-family: "GeistMono Nerd Font, Phosphor"
 }
 
-.status_bar {
-  font-size: 1.05em;
-  background-color: #100030;
-}
+@import "./status_bar/status_bar.window.scss";
 
 // -------------------------------
 // Global Styles

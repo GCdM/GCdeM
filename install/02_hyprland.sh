@@ -56,8 +56,7 @@ echo "   [ Hyprland WM ] - Hyprland is configured!"
 
 # TODOs
 # - configure dunst
-# - learn + set up grim/hyprshot screenshot tool (+ slurp?)
-# - add keybindings
+# - OR replace w/ swaync
 
 echo "=== ======================================== ==="
 echo "   ..  .  .  .. Hyprland ..  .  .  ..   "
