@@ -1,9 +1,5 @@
 @import "../../theme/theme.variables.scss";
 
-// .system_widget {
-//   color: $font-color;
-// }
-
 .sensors_group {
   padding-left: 0px;
   padding-right: 0px;
@@ -11,7 +7,7 @@
 
   & * {
     // all children
-    border-radius: 50px;
+    border-radius: 5px;
   }
 
   .screen_share_indicator {
@@ -29,10 +25,5 @@
   .microphone_indicator {
     color: rgba(200, 200, 0, 1);
     background-color: rgba(200, 200, 0, 0.5)
-  }
-
-  .bluetooth_indicator {
-    color: rgba(0, 0, 200, 1);
-    background-color: rgba(0, 0, 200, 0.2);
   }
 }

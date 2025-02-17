@@ -10,16 +10,18 @@
             :orientation "horizontal"
             :icon-size 25)
         (sensors_group)
-        (volume_button)
-        (brightness_button)
-        (wifi_button)
+        (connectivity_group)
+        ; (wifi_button)
+        (volume_brightness_group)
+        ; (volume_button)
+        ; (brightness_button)
         (battery_button)
         ; (power_button)
         (date_button)))
 
 (defwidget sensors_group []
     (box
-        :class "sensors_group "
+        :class "sensors_group"
         :orientation "horizontal"
         :halign "center"
         :space-evenly true
@@ -27,33 +29,36 @@
         (sensor_indicator 
             :class "screen_share_indicator"
             :text ""
-            :xalign 0.42)
+            :xalign 0.4)
         (sensor_indicator 
             :class "camera_indicator"
             :text "󰤙"
-            :xalign 0.5)
+            :xalign 0.48)
         (sensor_indicator 
             :class "microphone_indicator"
             :text ""
-            :xalign 0.5)
-        (sensor_indicator 
-            :class "bluetooth_indicator system_widget_button"
-            :text "󰂱"
-            :xalign 0.45)))
+            :xalign 0.5)))
  
 (defwidget sensor_indicator [class text xalign]
     (label
         :class class
-        :width 50
+        :width 45
         :text text
         :xalign xalign))
+
+(defwidget volume_brightness_group []
+    (box
+        :class "volume_brightness_group group_bubble"
+        :spacing 16
+        (volume_button)
+        (brightness_button)))
 
 (defpoll volume_poll
     :interval "0.2s"
     "~/.config/eww/scripts/current-volume.sh")
 (defwidget volume_button []
     (button
-        :class "volume_button group_bubble"
+        :class "volume_button"
         :onclick "~/.config/eww/scripts/launch-pwvucontrol.sh"
         (label 
             :text "󰕾 ${volume_poll}")))
@@ -63,8 +68,20 @@
     "~/.config/eww/scripts/current-brightness.sh")
 (defwidget brightness_button []
     (label 
-        :class "brightness_button group_bubble"
+        :class "brightness_button"
         :text " ${brightness_poll}"))
+
+(defwidget connectivity_group []
+    (box
+        :class "connectivity_widget group_bubble"
+        :spacing 16
+        (bluetooth_button)
+        (wifi_button)))
+
+(defwidget bluetooth_button []
+    (button
+        :class "bluetooth_button"
+        (label :text "󰂱")))
 
 (defpoll wifi_signal_poll
     :initial "__"
@@ -72,7 +89,7 @@
     "~/.config/eww/scripts/wifi-signal.sh")
 (defwidget wifi_button []
     (box
-        :class "wifi_button group_bubble"
+        :class "wifi_button"
         (label :text "󰤥 ${wifi_signal_poll}")))
      
 (defpoll date_poll 
