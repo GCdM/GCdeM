@@ -1,4 +1,5 @@
 @import "../theme/theme.variables.scss";
+@import "./components/components.scss";
 
 .status_bar {
   font-family: "GeistMono Nerd Font";
@@ -12,9 +13,6 @@
   padding-bottom: 5px;
 }
 
-// .status_bar_window {
-// }
-
 .group_bubble {
   border-radius: 10px;
   background-color: $group-background-color;
@@ -23,5 +21,6 @@
 }
 
 @import "./clock/clock.widget.scss";
+@import "./sensors/sensors.widget.scss";
 @import "./system/system.widget.scss";
 @import "./workspaces/workspaces.widget.scss";

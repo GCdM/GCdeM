@@ -1,0 +1,29 @@
+@import "../../theme/theme.variables.scss";
+
+.sensors_widget {
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 20px;
+
+  & * {
+    // all children
+    border-radius: 5px;
+  }
+
+  .screen_share_indicator {
+    font-size: 24px;
+    color: rgba(0, 180, 0, 1);
+    background-color: rgba(0, 100, 0, 0.7);
+  }
+
+  .camera_indicator {
+    font-size: 28px;
+    color: rgba(200, 0, 0, 1);
+    background-color: rgba(150, 0, 0, 0.5);
+  }
+
+  .microphone_indicator {
+    color: rgba(200, 200, 0, 1);
+    background-color: rgba(200, 200, 0, 0.5)
+  }
+}

@@ -1,0 +1,26 @@
+(defwidget sensors_widget []
+    (box
+        :class "sensors_widget"
+        :orientation "horizontal"
+        :halign "center"
+        :space-evenly true
+        :spacing 10
+        (sensor_indicator 
+            :class "screen_share_indicator"
+            :text ""
+            :xalign 0.4)
+        (sensor_indicator 
+            :class "camera_indicator"
+            :text "󰤙"
+            :xalign 0.48)
+        (sensor_indicator 
+            :class "microphone_indicator"
+            :text ""
+            :xalign 0.5)))
+ 
+(defwidget sensor_indicator [class text xalign]
+    (label
+        :class class
+        :width 45
+        :text text
+        :xalign xalign))
