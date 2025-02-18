@@ -59,7 +59,7 @@
 (defwidget volume_button []
     (button
         :class "volume_button"
-        :onclick "~/.config/eww/scripts/launch-pwvucontrol.sh"
+        :onclick "~/.config/eww/scripts/launch-application.sh pwvucontrol"
         (label 
             :text "󰕾 ${volume_poll}")))
 
@@ -81,6 +81,7 @@
 (defwidget bluetooth_button []
     (button
         :class "bluetooth_button"
+        :onclick "~/.config/eww/scripts/launch-application.sh overskride"
         (label :text "󰂱")))
 
 (defpoll wifi_signal_poll
