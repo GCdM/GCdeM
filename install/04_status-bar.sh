@@ -19,12 +19,12 @@ PACKAGES=(
 
 CURRENT_DIRECTORY="$(dirname "$(realpath "$0")")"
 
-"$CURRENT_DIRECTORY/utils/install-packages.sh" "${PACKAGES[@]}" --icon "󱠦"
+"$CURRENT_DIRECTORY/utilities/install-packages.sh" "${PACKAGES[@]}" --icon "󱠦"
 
 echo "󱠦   [ EWW ] - EWW packages installed!"
 
 echo "󱠦 󰒓 󰔟 [ EWW ] - EWW is being configured..."
-"$CURRENT_DIRECTORY/utils/symlink-home-file.sh" ".config/eww" --icon "󱠦"
+"$CURRENT_DIRECTORY/utilities/symlink-home-file.sh" ".config/eww" --icon "󱠦"
 echo "󱠦 󰒓 󱍸 [ EWW ] - EWW is configured!"
 
 echo "=== =================================== ==="

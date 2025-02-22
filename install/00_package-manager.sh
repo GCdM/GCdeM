@@ -9,7 +9,7 @@ echo ""
 
 required_env_vars=("PACKAGE_MANAGER")
 current_directory="$(dirname "$(realpath "$0")")"
-"$current_directory/utils/check-variables-are-set.sh" "${required_env_vars[@]}"
+"$current_directory/utilities/check-variables-are-set.sh" "${required_env_vars[@]}"
 
 if command -v "$PACKAGE_MANAGER" &>/dev/null; then
 	echo "󰣇   [ Install package manager ] - Package manager $PACKAGE_MANAGER is already installed."

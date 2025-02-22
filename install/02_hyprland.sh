@@ -41,12 +41,12 @@ PACKAGES=(
 
 CURRENT_DIRECTORY="$(dirname "$(realpath "$0")")"
 
-"$CURRENT_DIRECTORY/utils/install-packages.sh" "${PACKAGES[@]}" --icon ""
+"$CURRENT_DIRECTORY/utilities/install-packages.sh" "${PACKAGES[@]}" --icon ""
 
 echo "   [ Hyprland WM ] - Hyprland + ecosystem packages installed!"
 
 echo "  󰔟 [ Hyprland WM ] - Hyprland is being configured..."
-"$CURRENT_DIRECTORY/utils/symlink-home-file.sh" ".config/hypr" --icon ""
+"$CURRENT_DIRECTORY/utilities/symlink-home-file.sh" ".config/hypr" --icon ""
 echo "   [ Hyprland WM ] - Hyprland is configured!"
 
 # # Enable services

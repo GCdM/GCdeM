@@ -19,7 +19,7 @@ fi
 echo " 󰒓 󰔟 [ Install git ] - git is being configured..."
 
 CURRENT_DIRECTORY="$(dirname "$(realpath "$0")")"
-"$CURRENT_DIRECTORY/utils/symlink-home-file.sh" ".gitconfig" --icon ""
+"$CURRENT_DIRECTORY/utilities/symlink-home-file.sh" ".gitconfig" --icon ""
 
 echo " 󰒓 󱍸 [ Install git ] - git is configured!"
 
