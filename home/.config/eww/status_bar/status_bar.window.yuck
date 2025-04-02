@@ -13,7 +13,6 @@
 (defwidget status_bar_window []
     (centerbox 
         :class "status_bar_window"
-        :orientation "horizontal"
         (status_bar_left)
         (status_bar_center)
         (status_bar_right)))
@@ -23,15 +22,21 @@
     (workspaces_widget))
 
 (include "./status_bar/clock/clock.widget.yuck")
+(include "./status_bar/notification_summary/notification_summary.widget.yuck")
 (defwidget status_bar_center []
-    (clock_widget))
+    (box
+        :class "status_bar_center"
+        :halign "center"
+        :space-evenly false
+        :spacing 10
+        (clock_widget)
+        (notification_summary_widget)))
 
 (include "./status_bar/sensors/sensors.widget.yuck")
 (include "./status_bar/system/system.widget.yuck")
 (defwidget status_bar_right []
     (box
         :class "status_bar_right"
-        :orientation "horizontal"
         :halign "end"
         :space-evenly false
         ; :spacing 10

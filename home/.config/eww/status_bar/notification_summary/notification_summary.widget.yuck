@@ -1,0 +1,23 @@
+(defwidget notification_summary_widget []
+    (box
+        :class "notification_summary_widget"
+        :halign "end"
+        :space-evenly false
+        (notification_summary_button)
+        (update_summary_button)
+        (email_summary_button)))
+
+(defwidget notification_summary_button []
+    (button
+        :class "notification_summary_button group_bubble"
+        (label :text "󱅫 ${2}")))
+
+(defwidget email_summary_button []
+    (button
+        :class "email_summary_button group_bubble"
+        (label :text "󰇮 ${19}")))
+
+(defwidget update_summary_button []
+    (button
+        :class "update_summary_button group_bubble"
+        (label :text "󰏕 ${104}")))
