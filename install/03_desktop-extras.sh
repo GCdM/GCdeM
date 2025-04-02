@@ -11,6 +11,9 @@
 #   - nmapplet? w/ EWW bar
 #   - wofi network manager? https://github.com/firecat53/networkmanager-dmenu
 # - USB automatic mounting/detection
+#  - udisks2
+#  - w/ udiskie
+#  - *w/ udiskie-dmenu?
 # - grim slurp
 #	- OR hyprshot
 # - _some clipboard manager_
