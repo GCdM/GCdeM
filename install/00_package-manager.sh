@@ -57,6 +57,7 @@ if [[ -f /etc/pacman.conf ]]; then
 	else
 		echo "󰣇 󰒓 󰔟 [ Install package manager ] - Enabling parallel downloads in Pacman..."
 		sudo sed -i "s/^#*\(ParallelDownloads\)=.*/\1=$number_of_parallel_downloads/" /etc/pacman.conf
+		# TODO: Enable Colour - `sed` to remove #
 		echo "󰣇 󰒓  [ Install package manager ] - Parallel downloads have been set to $number_of_parallel_downloads!"
 	fi
 else

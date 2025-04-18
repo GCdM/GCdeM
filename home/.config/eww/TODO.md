@@ -5,15 +5,15 @@
 - [x] Group system elements
 - [x] Bluetooth
 
-- [ ] Unread emails placeholder
-- [ ] Updates
+- [x] Unread emails placeholder
+- [ ] Clamp brightness at 1
+  - [ ] Round down reading to integer
+- [ ] Battery icons + theming
 - [ ] WiFi
   - [ ] GUI (`networkmanager-dmenu`)
   - [ ] Icon + theme updates
   - [ ] On hover show network name
-- [ ] Clamp brightness at 1
-  - [ ] Round down reading to integer
-- [ ] Battery icons + theming
+- [ ] Updates
 
 - [ ] Notifications centre
 - [ ] Unread emails
