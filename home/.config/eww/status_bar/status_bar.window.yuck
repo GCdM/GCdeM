@@ -29,8 +29,8 @@
         :halign "center"
         :space-evenly false
         :spacing 10
-        (clock_widget)
-        (notification_summary_widget)))
+        (clock_widget)))
+        ; (notification_summary_widget)
 
 (include "./status_bar/sensors/sensors.widget.yuck")
 (include "./status_bar/system/system.widget.yuck")
@@ -40,8 +40,8 @@
         :halign "end"
         :space-evenly false
         ; :spacing 10
-        (sensors_widget)
-        (separator_component)
+        ; (sensors_widget)
+        ; (separator_component)
         (system_widget)))
  
 
