@@ -34,21 +34,11 @@ run with a `curl` command, or by executing it locally after cloning the repo.
 
 > [!warning]
 >
-> The instructions below are no longer true. The repo is now public, so the
-> below needs updating.
-
-Either way, the host machine will need GitHub access to my private repo.
-
-### Installing with `curl`
-
-_TODO: Rewrite these instructions to not use `curl`, and just clone + execute_
-
-1. Get a GitHub personal access token, with the `repo` scope.
-2. Execute the script with the following command:
+> The instructions below don't yet work. This is a WIP
 
 ```bash
-curl -H "Authorization: token <GITHUB ACCESS TOKEN>" \
-     -L "https://raw.githubusercontent.com/GCdM/GCdeM/main/install.sh" | bash
+curl -L "https://raw.githubusercontent.com/GCdM/GCdeM/main/install.sh"\
+  | bash
 ```
 
 ## File Structure
