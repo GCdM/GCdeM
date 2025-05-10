@@ -1,9 +1,0 @@
-[window]
-decorations = "None"
-
-[scrolling]
-history = 15000
-
-[font]
-size = 14
-normal = { family = "GeistMono Nerd Font" }
