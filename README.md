@@ -23,8 +23,8 @@ and be able to easily recreate my environment.
 | Function      | Software  |
 | ------------- | --------- |
 | Compositor    | Hyprland  |
-| Terminal      | Alacritty |
 | Shell         | Fish      |
+| Terminal      | Alacritty |
 | Bar & widgets | EWW       |
 
 ## Installation
