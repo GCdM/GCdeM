@@ -5,4 +5,4 @@
 current_brightness=$(brightnessctl get)
 max_brightness=$(brightnessctl max)
 
-awk "BEGIN {print ($current_brightness / $max_brightness) * 100}"
+awk "BEGIN {print int(($current_brightness / $max_brightness) * 100)}"
