@@ -8,8 +8,6 @@ function gcdem
   switch $system_to_config
     case ''
       set -f system_directory $GCDEM_PATH
-    case maidiyi
-      set -f system_directory $HOME/.config/nvim
     case fish
       set -f system_directory $GCDEM_PATH/home/.config/fish
     case hypr
@@ -25,6 +23,6 @@ function gcdem
 
   cd $system_directory
   $VISUAL .
-  echo  Done configuring $system_directory
+  echo  Configured $system_directory
   cd -
 end
