@@ -4,8 +4,10 @@ if status is-interactive
     alias l="eza -Alh --group-directories-first"
     abbr -a dark brightnessctl s 1
 
+    # ###
+    # Load private variables
+    # ###
     set -l private_variables_filepath "$HOME/.config/fish/fish_variables_private.fish"
-
     if [ -f $private_variables_filepath ]
         source $private_variables_filepath
     else
@@ -15,39 +17,6 @@ if status is-interactive
         echo "|__ $private_variables_filepath"
         echo " You can copy the exmaple file:"
         echo "|__ $example_filepath"
-    end
-
-
-    # 
-    # A function for configuring different components of gcdemv
-    #
-    function gcdem
-        set -q GCDEM_PATH; or set -f GCDEM_PATH "$HOME/GCdeM"
-
-        set -l system_to_config $argv[1]
-
-        switch $system_to_config
-            case ''
-                set -f system_directory $GCDEM_PATH
-            case maidiyi
-                set -f system_directory $HOME/.config/nvim
-            case fish
-                set -f system_directory $GCDEM_PATH/home/.config/fish
-            case hypr
-                set -f system_directory $GCDEM_PATH/home/.config/hypr
-            case eww
-                set -f system_directory $GCDEM_PATH/home/.config/eww
-            case .config
-                set -f system_directory $GCDEM_PATH/home/.config
-            case '*'
-                echo Unrecognised gcdemv component: $system_to_config
-                return
-        end
-
-        cd $system_directory
-        $VISUAL .
-        echo  Done configuring $system_directory
-        cd -
     end
 
     set -gx NVM_DIR $HOME/.nvm
