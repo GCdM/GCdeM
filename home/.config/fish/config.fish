@@ -4,6 +4,20 @@ if status is-interactive
     alias l="eza -Alh --group-directories-first"
     abbr -a dark brightnessctl s 1
 
+    set -l private_variables_filepath "$HOME/.config/fish/fish_variables_private.fish"
+
+    if [ -f $private_variables_filepath ]
+        source $private_variables_filepath
+    else
+        set -f example_filepath (string join "" $private_variables_filepath ".example")
+
+        echo " Missing private fish_variables: "
+        echo "|__ $private_variables_filepath"
+        echo " You can copy the exmaple file:"
+        echo "|__ $example_filepath"
+    end
+
+
     # 
     # A function for configuring different components of gcdemv
     #
