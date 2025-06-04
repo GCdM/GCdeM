@@ -9,7 +9,7 @@ set -e
 # ###
 
 echo_usage_example() {
-	echo "USAGE: $0 <prompt message> [--default <default value>]"
+	echo -e "USAGE: $(basename "$0") <prompt message> [--default <default value>]\n" >&2
 }
 
 # Parse arguments
@@ -39,14 +39,14 @@ prompt_string() {
 	local input
 
 	if [[ -n "$DEFAULT_VALUE" ]]; then
-		printf "%s [ %s ]\n" "$PROMPT_MESSAGE" "$DEFAULT_VALUE" >&2
-		read -r input
+		printf "%s \e[90m\e[3m[%s]\e[0m\n" "$PROMPT_MESSAGE" "$DEFAULT_VALUE" >&2
+		read -r -p "> " input
 
 		echo "${input:-$DEFAULT_VALUE}"
 	else
 		while [[ -z "${input:-}" ]]; do
 			printf "%s\n" "$PROMPT_MESSAGE" >&2
-			read -r input
+			read -r -p "> " input
 
 			[[ -z "$input" ]] && echo "Input cannot be empty. Please try again."
 		done
@@ -54,4 +54,4 @@ prompt_string() {
 	fi
 }
 
-prompt_string "$PROMPT_MESSAGE" "$DEFAULT_VALUE"
+prompt_string
