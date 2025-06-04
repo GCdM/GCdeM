@@ -15,11 +15,11 @@ set -e
 
 ICON="󰈮"
 
-function echo_usage_example() {
+echo_usage_example() {
 	echo "$ICON 󱍸  [ Symlink $RELATIVE_PATH_FROM_HOME ] - USAGE: $0 <relative path (from \$HOME)> [--icon <nerd font icon>]"
 }
 
-function does_path_exist() {
+does_path_exist() {
 	if [[ -d "$1" || -f "$1" || -L "$1" ]]; then
 		return 0
 	else

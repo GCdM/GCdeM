@@ -29,16 +29,14 @@ and be able to easily recreate my environment.
 
 ## Installation
 
-This repo contains a bash installation script, `install.sh`. It can either be
-run with a `curl` command, or by executing it locally after cloning the repo.
+This repo contains a bash installation script, `install.sh`.
 
-> [!warning]
->
-> The instructions below don't yet work. This is a WIP
+Clone the repo to your desired location (e.g. `/home/myuser/GCdeM`) and execute
+the install script.
 
 ```bash
-curl -L "https://raw.githubusercontent.com/GCdM/GCdeM/main/install.sh"\
-  | bash
+cd ~/GCdeM # or wherever you've cloned the repo
+./install.sh
 ```
 
 ## File Structure
