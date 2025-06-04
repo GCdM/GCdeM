@@ -2,6 +2,7 @@
 
 set -e
 
+echo ''
 echo '=== ======================================================================= ==='
 echo '=== ======================================================================= ==='
 echo '===       ___           ___          _____          ___           ___       ==='
@@ -18,27 +19,40 @@ echo '===      \__\/         \__\/                       \__\/         \__\/    
 echo '===                                                                         ==='
 echo '=== ======================================================================= ==='
 echo '=== ======================================================================= ==='
+echo ''
+
+handle_error() {
+	echo "Could not complete installationg </3"
+	echo "An error occurred :( at line $1"
+	echo ""
+	exit 1
+}
+
+trap 'handle_error $LINENO' ERR
 
 # Set environment variables to be used across install sub-scripts
-export GCDEM_PATH="$HOME/GCdeM/"
-export PACKAGE_MANAGER="paru"
-export TERMINAL="alacritty"
+GCDEM_PATH="$(dirname "$(realpath "$0")")"
+export GCDEM_PATH
+
+PACKAGE_MANAGER=$(./install/utililities/prompt-select.sh "Which package manager would you like to use?" "paru")
+export PACKAGE_MANAGER
+
+TERMINAL=$(./install/utililities/prompt-select.sh "What terminal would you like to set as your main terminal?" "alacritty")
+export TERMINAL
 
 # # Update system and install required packages
 # echo "Updating system and installing essential tools..."
 # pacman -Syu --noconfirm
 # pacman -S --noconfirm base-devel git wget curl unzip
 
-current_directory="$(dirname "$(realpath "$0")")"
-
 # Install package manager
-"$current_directory/install/00_package-manager.sh"
+"$GCDEM_PATH/install/00_package-manager.sh"
 
 # Set up terminal & shell
-"$current_directory/install/01_git.sh"
+"$GCDEM_PATH/install/01_git.sh"
 
 # Set up Hyprland
-"$current_directory/install/02_hyprland.sh"
+"$GCDEM_PATH/install/02_hyprland.sh"
 
 # TODO copy all `stdout` + `stderr` to a .gitignored file or directory, so that
 # it's auditable in case the terminal is cleared/closed or the computer rebooted
