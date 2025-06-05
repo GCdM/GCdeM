@@ -6,8 +6,8 @@
 - [x] Bluetooth
 
 - [x] Unread emails placeholder
-- [ ] Clamp brightness at 1
-  - [ ] Round down reading to integer
+- [x] Clamp brightness at 1
+  - [x] Round down reading to integer
 - [ ] Battery icons + theming
 - [ ] WiFi
   - [ ] GUI (`networkmanager-dmenu`)
@@ -24,4 +24,4 @@
 - [ ] Buttons on hover
 - [ ] Sensors styling when off/on/in use
 - [ ] Update some polls to listeners to be more efficient:
-  <https://elkowar.github.io/eww/configuration.html#adding-dynamic-content>
+      <https://elkowar.github.io/eww/configuration.html#adding-dynamic-content>

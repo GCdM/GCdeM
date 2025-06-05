@@ -55,6 +55,7 @@ Setup notes for getting an arch based system setup with my desktop environment.
   - On Screen Display (e.g. [SwayOSD](https://github.com/ErikReider/SwayOSD))
     for volume/brightness
 - Understand nuances of `networkmanager` vs alternatives (e.g. VPN control)
+- Use `make` for install command
 
 ## Legend
 

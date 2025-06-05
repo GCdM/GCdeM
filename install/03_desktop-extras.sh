@@ -1,4 +1,4 @@
-# - overskride
+# - blueberry (Mint variant of Gnome's bluetooth GUI)
 # - fd
 # - dunst
 # - pipewire
