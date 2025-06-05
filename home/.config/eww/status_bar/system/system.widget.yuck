@@ -52,11 +52,15 @@
         (bluetooth_button)
         (wifi_button)))
 
+(defpoll bluetooth_status_poll
+    :interval "1s"
+    "~/.config/eww/scripts/bluetooth-status.sh")
 (defwidget bluetooth_button []
     (button
         :class "bluetooth_button"
-        :onclick "~/.config/eww/scripts/launch-application.sh overskride"
-        (label :text "󰂱")))
+        :onclick "~/.config/eww/scripts/launch-application.sh blueberry"
+        :visible {bluetooth_status_poll != ""}
+        (label :text "${bluetooth_status_poll}")))
 
 (defpoll wifi_signal_poll
     :initial "__"
@@ -68,7 +72,7 @@
         (label :text "󰤥 ${wifi_signal_poll}")))
      
 (defpoll date_poll 
-    :interval "10s"
+    :interval "60s"
     "date '+%d/%m'")
 (defwidget date_button []
     (label 
