@@ -66,10 +66,15 @@
     :initial "__"
     :interval "3.0s"
     "~/.config/eww/scripts/wifi-signal.sh")
+(defpoll wifi_status_poll
+    :interval "1.0s"
+    "~/.config/eww/scripts/wifi-status.sh")
 (defwidget wifi_button []
-    (box
+    (button
         :class "wifi_button"
-        (label :text "󰤥 ${wifi_signal_poll}")))
+        :onclick "~/.config/eww/scripts/launch-application.sh nm-connection-editor"
+        :visible {wifi_status_poll != ""}
+        (label :text "${wifi_status_poll}")))
      
 (defpoll date_poll 
     :interval "60s"
