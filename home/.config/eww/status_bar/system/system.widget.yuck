@@ -86,13 +86,16 @@
         :class "date_button group_bubble"
         :text "󰃮 ${ date_poll }"))
 
+(defpoll battery_icon_poll
+    :interval "5s"
+    "~/.config/eww/scripts/battery-icon.sh")
 (defwidget battery_button []
     (box
         :class "battery_button group_bubble"
         :space-evenly false
         (label
             :class "battery_button"
-            :text "󱊣 ${EWW_BATTERY.BAT1.capacity}")))
+            :text "${battery_icon_poll} ${EWW_BATTERY.BAT1.capacity}")))
 
 ; (defwidget power_button []
 ;     (eventbox
