@@ -56,6 +56,7 @@ Setup notes for getting an arch based system setup with my desktop environment.
     for volume/brightness
 - Understand nuances of `networkmanager` vs alternatives (e.g. VPN control)
 - Use `make` for install command
+- Add `reflector` for mirrorlist updating
 
 ## Legend
 

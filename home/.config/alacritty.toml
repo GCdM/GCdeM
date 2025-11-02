@@ -5,7 +5,7 @@ decorations = "None"
 history = 15000
 
 [font]
-size = 15
+size = 12
 normal = { family = "GeistMono Nerd Font", style = "Regular" }
 bold = { family = "GeistMono Nerd Font", style = "Bold" }
 italic = { family = "GeistMono Nerd Font", style = "Italic" }
