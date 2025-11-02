@@ -12,12 +12,10 @@ is_wifi_adapter_off() {
   iwctl adapter list 2>/dev/null | grep -q "off"
 }
 
-# Returns the name of the first station
-get_station_name
-
+# Returns the station status (connected, disconnected, etc.)
 get_station_status() {
   local station
-  station=$(iwctl station list 2>/dev/null | tail -n +3 | awk 'NF {print $3}' | head -n1)
+  station=$(iwctl station list 2>/dev/null | grep 'wlan' | awk '{print $2}' | head -n1)
   if [ -n "$station" ]; then
     iwctl station "$station" show 2>/dev/null | grep "State" | awk '{print $2}'
   fi
@@ -26,7 +24,7 @@ get_station_status() {
 # Function to get connected network name
 get_connected_network() {
   local station
-  station=$(iwctl station list 2>/dev/null | tail -n +3 | awk 'NF {print $1}' | head -n1)
+  station=$(iwctl station list 2>/dev/null | grep 'wlan' | awk '{print $2}' | head -n1)
   if [ -n "$station" ]; then
     iwctl station "$station" show 2>/dev/null | grep "Connected network" | awk '{for(i=3;i<=NF;i++) printf "%s ", $i; print ""}'
   fi

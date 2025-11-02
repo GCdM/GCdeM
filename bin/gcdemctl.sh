@@ -10,7 +10,6 @@ echo_usage() {
 # This will be symlinked to `~/.local/bin/` to have as
 # a CLI helper to be used by other functions.
 # ###
-# TODO: Might want to do with rust instead
 
 GCDEMCTL_UTILITY="$1"
 
