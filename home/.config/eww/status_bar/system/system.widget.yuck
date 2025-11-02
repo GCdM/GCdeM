@@ -62,19 +62,21 @@
         :visible {bluetooth_status_poll != ""}
         (label :text "${bluetooth_status_poll}")))
 
-(defpoll wifi_signal_poll
-    :initial "__"
-    :interval "3.0s"
-    "~/.config/eww/scripts/wifi-signal.sh")
-(defpoll wifi_status_poll
+(defpoll wifi_icon_poll
+    :initial "󰤯"
     :interval "1.0s"
-    "~/.config/eww/scripts/wifi-status.sh")
+    "~/.config/eww/scripts/wifi-display.sh icon")
+(defpoll wifi_text_poll
+    :initial "..."
+    :interval "1.0s"
+    "~/.config/eww/scripts/wifi-display.sh text")
 (defwidget wifi_button []
     (button
         :class "wifi_button"
         :onclick "~/.config/eww/scripts/launch-application.sh nm-connection-editor"
-        :visible {wifi_status_poll != ""}
-        (label :text "${wifi_status_poll}")))
+        :visible {wifi_icon_poll != ""}
+        :tooltip wifi_text_poll
+        (label :text "${wifi_icon_poll}")))
      
 (defpoll date_poll 
     :interval "60s"

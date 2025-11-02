@@ -36,10 +36,11 @@ check_internet_connection() {
 }
 
 # Main function to determine WiFi status
+# Outputs in format: ICON|STATUS_TEXT
 get_wifi_status() {
   # Check if WiFi adapter is powered on
   if is_wifi_adapter_off; then
-    echo "$WIFI_OFF_ICON"
+    echo "$WIFI_OFF_ICON|WiFi Off"
     return
   fi
 
@@ -54,20 +55,20 @@ get_wifi_status() {
 
     # Check internet connectivity
     if check_internet_connection; then
-      echo "$WIFI_CONNECTED_ICON $network"
+      echo "$WIFI_CONNECTED_ICON|$network"
     else
-      echo "$WIFI_NO_INTERNET_ICON $network (No Internet)"
+      echo "$WIFI_NO_INTERNET_ICON|$network (No Internet)"
     fi
     ;;
   "connecting")
-    echo "$WIFI_CONNECTING_ICON Connecting..."
+    echo "$WIFI_CONNECTING_ICON|Connecting..."
     ;;
   "disconnected" | "")
-    echo "$WIFI_DISCONNECTED_ICON Disconnected"
+    echo "$WIFI_DISCONNECTED_ICON|Disconnected"
     ;;
   *)
     # Fallback for unknown states
-    echo "$WIFI_DISCONNECTED_ICON Unknown"
+    echo "$WIFI_DISCONNECTED_ICON|Unknown"
     ;;
   esac
 }
